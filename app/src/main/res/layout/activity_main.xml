@@ -10,7 +10,8 @@ android:layout_gravity="center"
 tools:context=".MainActivity">
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="5dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
@@ -22,32 +23,44 @@ tools:context=".MainActivity">
         tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/shen_segment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/shen_button_selector"
             android:button="@android:color/transparent"
+            android:checked="false"
             android:gravity="center"
             android:text="Shen et al. 2020"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:onClick="onSegmentClicked"/>
 
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/mao_hydro_segment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/mao_hydro_selector"
             android:button="@android:color/transparent"
+            android:checked="true"
             android:gravity="center"
-            android:text="Mao et al. 1986"
             android:padding="16dp"
-            android:textColor="@color/black" />
+            android:text="Mao et al. 1986"
+            android:textColor="@color/black"
+            android:onClick="onSegmentClicked"/>
 
         <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/mao_nHydro_segment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/mao_non_hydro_unchecked"
             android:button="@android:color/transparent"
+            android:checked="false"
             android:gravity="center"
             android:text="Mao non-hydro"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:onClick="onSegmentClicked"/>
 
     </RadioGroup>
 

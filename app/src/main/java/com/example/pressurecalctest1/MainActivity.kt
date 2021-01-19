@@ -16,18 +16,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onSegmentClicked(view: View) {
-        var isSelected = false;
-        switch (view.getId()) {
-            case shen
+        if (view is AppCompatRadioButton) {
+            val checked = view.isChecked
+            when (view.getId()) {
+                R.id.shen_segment -> if (checked) {println("Shen chosen")}
+                R.id.mao_hydro_segment -> if (checked) {println("Mao hydro chosen")}
+                R.id.mao_nHydro_segment -> if (checked) {println("Mao non-hydro chosen")}
+            }
         }
     }
-
-    private fun AppCompatRadioButton(): Any {
-
-    }
-/*
-    public void onSegmentClicked(View view) {
-        var isSelected = ((androidx.appcompat.widget.AppCompatRadioButton())view).isChecked();
-        switch (view.getId()) { case R . layout . id . shen_segment : }
-    }*/
+// private fun AppCompatRadioButton(): Any {
+//
+// }
+//
+// public void onSegmentClicked(View view) {
+// var isSelected = ((androidx.appcompat.widget.AppCompatRadioButton())view).isChecked();
+// switch (view.getId()) { case R . layout . id . shen_segment : }
+// }
 }

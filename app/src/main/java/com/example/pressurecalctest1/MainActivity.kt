@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
         val shen = findViewById<AppCompatRadioButton>(R.id.shen_segment)
         val mao_hydro = findViewById<AppCompatRadioButton>(R.id.mao_hydro_segment)
         val mao_nHydro = findViewById<AppCompatRadioButton>(R.id.mao_nHydro_segment)
-
+// Add radioGroup.setOnCheckedChangeListener and button.setOnClickListener:
+// see geeksforgeeks.org/radiobutton-in-kotlin -> on Dell PC
     }
 
     fun onSegmentClicked(view: View) {
@@ -25,12 +26,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-// private fun AppCompatRadioButton(): Any {
-//
-// }
-//
-// public void onSegmentClicked(View view) {
-// var isSelected = ((androidx.appcompat.widget.AppCompatRadioButton())view).isChecked();
-// switch (view.getId()) { case R . layout . id . shen_segment : }
-// }
 }

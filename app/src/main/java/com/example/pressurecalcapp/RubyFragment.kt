@@ -1,4 +1,4 @@
-package com.example.pressurecalctest1
+package com.example.pressurecalcapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -31,7 +31,7 @@ class RubyFragment : Fragment() {
         val mao_nHydro = view.findViewById<AppCompatRadioButton>(R.id.mao_nHydro_segment)
     }
 
-    fun onSegmentClicked(view: View) {
+    public fun onSegmentClicked(view: View) {
         if (view is AppCompatRadioButton) {
             val checked = view.isChecked
             when (view.getId()) {

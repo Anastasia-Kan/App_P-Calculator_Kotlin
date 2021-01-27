@@ -1,4 +1,4 @@
-package com.example.pressurecalctest1
+package com.example.pressurecalcapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatRadioButton
+import com.example.pressurecalcapp.R
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
 
     val rubyView = RubyFragment()
     val diamondView = DiamondFragment()

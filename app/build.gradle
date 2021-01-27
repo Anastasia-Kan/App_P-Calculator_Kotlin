@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.pressurecalctest1"
+        applicationId "com.example.pressurecalcapp"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

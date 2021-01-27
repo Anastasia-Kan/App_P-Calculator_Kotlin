@@ -1,4 +1,4 @@
-package com.example.pressurecalctest1
+package com.example.pressurecalcapp
 
 import org.junit.Test
 

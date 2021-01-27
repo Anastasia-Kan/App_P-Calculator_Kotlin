@@ -29,6 +29,16 @@ public class MainActivity : AppCompatActivity() {
         diaTab.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, diamondView).commit()
         }
+    }
 
+    public fun onSegmentClicked(view: View) {
+        if (view is AppCompatRadioButton) {
+            val checked = view.isChecked
+            when (view.getId()) {
+                R.id.shen_segment -> if (checked) {println("Shen chosen")}
+                R.id.mao_hydro_segment -> if (checked) {println("Mao hydro chosen")}
+                R.id.mao_nHydro_segment -> if (checked) {println("Mao non-hydro chosen")}
+            }
+        }
     }
 }

@@ -34,7 +34,8 @@ tools:context=".RubyFragment">
             android:gravity="center"
             android:onClick="onSegmentClicked"
             android:text="Shen et al. 2020"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            tools:ignore="OnClick" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/mao_hydro_segment"

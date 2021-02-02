@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatRadioButton
 import com.example.pressurecalcapp.R
 
-public class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     val rubyView = RubyFragment()
     val diamondView = DiamondFragment()
@@ -31,14 +31,15 @@ public class MainActivity : AppCompatActivity() {
         }
     }
 
-    public fun onSegmentClicked(view: View) {
+/*    public fun onSegmentClicked(view: View) {
+        Log.i("myDebug", "onSegmentClicked: ")
         if (view is AppCompatRadioButton) {
             val checked = view.isChecked
             when (view.getId()) {
-                R.id.shen_segment -> if (checked) {println("Shen chosen")}
-                R.id.mao_hydro_segment -> if (checked) {println("Mao hydro chosen")}
+                R.id.shen_segment -> if (checked) { Log.i(TAG, "Shen chosen")}
+                R.id.mao_hydro_segment -> if (checked) {Log.i(TAG, "Mao hydro chosen")}
                 R.id.mao_nHydro_segment -> if (checked) {println("Mao non-hydro chosen")}
             }
         }
-    }
+    }*/
 }

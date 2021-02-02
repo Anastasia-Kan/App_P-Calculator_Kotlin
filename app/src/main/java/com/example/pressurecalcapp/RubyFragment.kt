@@ -15,8 +15,27 @@ class RubyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-         return inflater.inflate(R.layout.fragment_ruby, container, false)
+         val view = inflater.inflate(R.layout.fragment_ruby, container, false)
 
+        /*fun onSegmentClicked(view: View) {
+            if (view is AppCompatRadioButton) {
+                val checked = view.isChecked
+                when (view.getId()) {
+                    R.id.shen_segment -> if (checked) {
+                        println("Shen chosen")
+                    }
+                    R.id.mao_hydro_segment -> if (checked) {
+                        println("Mao hydro chosen")
+                    }
+                    R.id.mao_nHydro_segment -> if (checked) {
+                        println("Mao non-hydro chosen")
+                    }
+                }
+            }
+
+        }*/
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,7 +45,33 @@ class RubyFragment : Fragment() {
         val mao_hydro = view.findViewById<AppCompatRadioButton>(R.id.mao_hydro_segment)
         val mao_nHydro = view.findViewById<AppCompatRadioButton>(R.id.mao_nHydro_segment)
 
+        /*fun onSegmentClicked(view: View) {
+            if (view is AppCompatRadioButton) {
+                val checked = view.isChecked
+                when (view.getId()) {
+                    R.id.shen_segment -> if (checked) {
+                        println("Shen chosen")
+                    }
+                    R.id.mao_hydro_segment -> if (checked) {
+                        println("Mao hydro chosen")
+                    }
+                    R.id.mao_nHydro_segment -> if (checked) {
+                        println("Mao non-hydro chosen")
+                    }
+                }
+            }*/
+
+
     }
 
-
+    public fun onSegmentClicked(view: View) {
+        if (view is AppCompatRadioButton) {
+            val checked = view.isChecked
+            when (view.getId()) {
+                R.id.shen_segment -> if (checked) {println("Shen chosen")}
+                R.id.mao_hydro_segment -> if (checked) {println("Mao hydro chosen")}
+                R.id.mao_nHydro_segment -> if (checked) {println("Mao non-hydro chosen")}
+            }
+        }
+    }
 }

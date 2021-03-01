@@ -21,28 +21,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        var binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
 
         supportFragmentManager.beginTransaction().add(R.id.mainFragmentContainer, rubyView).commit()
 
         binding.rubyTab.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, rubyView).commit()
+
+            //TODO: save local var Tab-state
         }
 
         binding.diamondTab.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, diamondView).commit()
+
+            //TODO: save local var Tab-state
         }
     }
-
-/*   public fun onSegmentClicked(view: View) {
-        Log.i("myDebug", "onSegmentClicked: ")
-        if (view is AppCompatRadioButton) {
-            val checked = view.isChecked
-            when (view.getId()) {
-                R.id.shen_segment -> if (checked) { Log.i(TAG, "Shen chosen")}
-                R.id.mao_hydro_segment -> if (checked) {Log.i(TAG, "Mao hydro chosen")}
-                R.id.mao_nHydro_segment -> if (checked) {println("Mao non-hydro chosen")}
-            }
-        }
-    }*/
 }

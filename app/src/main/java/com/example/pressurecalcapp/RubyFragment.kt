@@ -20,7 +20,6 @@ class RubyFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bind_ruby: FragmentRubyBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

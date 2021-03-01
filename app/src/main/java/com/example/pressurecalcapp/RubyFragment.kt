@@ -10,26 +10,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.appcompat.widget.AppCompatRadioButton
+import androidx.databinding.DataBindingUtil
+import com.example.pressurecalcapp.databinding.FragmentRubyBinding
+import androidx.databinding.DataBindingUtil.inflate as dataBindingUtilInflate
 
 class RubyFragment : Fragment(), View.OnClickListener {
 
     val TAG = "pia9debug"
+
+    lateinit var bind_ruby : FragmentRubyBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_ruby, container, false)
-        return view
+        bind_ruby = DataBindingUtil.inflate(inflater, R.layout.fragment_ruby, container, false)
+        return bind_ruby.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<AppCompatRadioButton>(R.id.shen_segment).setOnClickListener(this)
-        view.findViewById<AppCompatRadioButton>(R.id.mao_hydro_segment).setOnClickListener(this)
-        view.findViewById<AppCompatRadioButton>(R.id.mao_nHydro_segment).setOnClickListener(this)
+        bind_ruby.shenSegment.setOnClickListener(this)
+        bind_ruby.maoHydroSegment.setOnClickListener(this)
+        bind_ruby.maoNHydroSegment.setOnClickListener(this)
+
+
+        //view.findViewById<AppCompatRadioButton>(R.id.shen_segment).setOnClickListener(this)
+        //view.findViewById<AppCompatRadioButton>(R.id.mao_hydro_segment).setOnClickListener(this)
+        //view.findViewById<AppCompatRadioButton>(R.id.mao_nHydro_segment).setOnClickListener(this)
         }
 
     override fun onClick(view: View?) {

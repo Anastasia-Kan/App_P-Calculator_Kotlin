@@ -13,8 +13,6 @@ import com.example.pressurecalcapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //lateinit var binding : ActivityMainBinding
-
     private val rubyView = RubyFragment()
     private val diamondView = DiamondFragment()
 

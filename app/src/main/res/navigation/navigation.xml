@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/rubyFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.pressurecalcapp.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/diamondFragment"
+        android:name="com.example.pressurecalcapp.DiamondFragment"
+        android:label="DiamondFragment" />
+    <fragment
+        android:id="@+id/rubyFragment"
+        android:name="com.example.pressurecalcapp.RubyFragment"
+        android:label="RubyFragment" >
+        <action
+            android:id="@+id/action_rubyFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.pressurecalcapp.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+</navigation>

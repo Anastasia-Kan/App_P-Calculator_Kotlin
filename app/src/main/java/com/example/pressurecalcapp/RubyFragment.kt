@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.pressurecalcapp.databinding.FragmentRubyBinding
 import androidx.databinding.DataBindingUtil.inflate as dataBindingUtilInflate
 
@@ -18,23 +20,26 @@ class RubyFragment : Fragment(), View.OnClickListener {
 
     val TAG = "MyDebug"
 
-    private lateinit var bind_ruby: FragmentRubyBinding
+    private lateinit var binding: FragmentRubyBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        bind_ruby = DataBindingUtil.inflate(inflater, R.layout.fragment_ruby, container, false)
-        return bind_ruby.root
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ruby, container, false)
+        /*binding.infoRubyBTN.setOnClickListener( // App crashes with click
+            Navigation.createNavigateOnClickListener(R.id.action_rubyFragment_to_infoFragment)
+        )*/
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bind_ruby.shenSegment.setOnClickListener(this)
-        bind_ruby.maoHydroSegment.setOnClickListener(this)
-        bind_ruby.maoNHydroSegment.setOnClickListener(this)
+        binding.shenSegment.setOnClickListener(this)
+        binding.maoHydroSegment.setOnClickListener(this)
+        binding.maoNHydroSegment.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {

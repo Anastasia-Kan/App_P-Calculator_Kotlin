@@ -6,19 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.pressurecalcapp.databinding.FragmentDiamondBinding
-import com.example.pressurecalcapp.databinding.FragmentRubyBinding
+import com.example.pressurecalcapp.databinding.FragmentInfoBinding
 
-class DiamondFragment : Fragment() {
 
-    private lateinit var binding : FragmentDiamondBinding
+class InfoFragment : Fragment() {
+
+    private lateinit var binding: FragmentInfoBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_diamond, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_info, container, false)
         return binding.root
     }
 }

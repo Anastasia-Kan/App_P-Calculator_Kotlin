@@ -23,16 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         var binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction().add(R.id.mainFragmentContainer, rubyView).commit()
+        supportFragmentManager.beginTransaction().add(R.id.mainNavHostFragment, rubyView).commit()
 
         binding.rubyTab.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, rubyView).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.mainNavHostFragment, rubyView).commit()
 
             //TODO: save local var Tab-state
         }
 
         binding.diamondTab.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, diamondView).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.mainNavHostFragment, diamondView).commit()
 
             //TODO: save local var Tab-state
         }

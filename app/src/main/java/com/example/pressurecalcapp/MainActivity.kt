@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private val rubyView = RubyFragment()
     private val diamondView = DiamondFragment()
 
+    val TAG = "MyDebug"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-/*    public fun onSegmentClicked(view: View) {
+/*   public fun onSegmentClicked(view: View) {
         Log.i("myDebug", "onSegmentClicked: ")
         if (view is AppCompatRadioButton) {
             val checked = view.isChecked

@@ -16,15 +16,15 @@ import androidx.databinding.DataBindingUtil.inflate as dataBindingUtilInflate
 
 class RubyFragment : Fragment(), View.OnClickListener {
 
-    val TAG = "pia9debug"
+    val TAG = "MyDebug"
 
-    lateinit var bind_ruby : FragmentRubyBinding
+    private lateinit var bind_ruby: FragmentRubyBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         bind_ruby = DataBindingUtil.inflate(inflater, R.layout.fragment_ruby, container, false)
         return bind_ruby.root
@@ -36,19 +36,14 @@ class RubyFragment : Fragment(), View.OnClickListener {
         bind_ruby.shenSegment.setOnClickListener(this)
         bind_ruby.maoHydroSegment.setOnClickListener(this)
         bind_ruby.maoNHydroSegment.setOnClickListener(this)
-
-
-        //view.findViewById<AppCompatRadioButton>(R.id.shen_segment).setOnClickListener(this)
-        //view.findViewById<AppCompatRadioButton>(R.id.mao_hydro_segment).setOnClickListener(this)
-        //view.findViewById<AppCompatRadioButton>(R.id.mao_nHydro_segment).setOnClickListener(this)
-        }
+    }
 
     override fun onClick(view: View?) {
-        Log.i(ContentValues.TAG, "onClick: view is null: ${view == null}, view.id = ${view?.id}")
+        Log.i(TAG, "onClick: view is null: ${view == null}, view.id = ${view?.id}")
         when (view?.id) {
-            R.id.shen_segment -> Log.i(ContentValues.TAG, "onClick: shen_segment")
-            R.id.mao_hydro_segment -> Log.i(ContentValues.TAG, "onClick: mao_hydro_segment")
-            R.id.mao_nHydro_segment -> Log.i(ContentValues.TAG, "onClick: mao_nHydro_segment")
+            R.id.shen_segment -> Log.i(TAG, "onClick: shen_segment")
+            R.id.mao_hydro_segment -> Log.i(TAG, "onClick: mao_hydro_segment")
+            R.id.mao_nHydro_segment -> Log.i(TAG, "onClick: mao_nHydro_segment")
         }
     }
 }

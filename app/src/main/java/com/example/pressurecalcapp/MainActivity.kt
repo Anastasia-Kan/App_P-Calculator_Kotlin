@@ -7,26 +7,29 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatRadioButton
-import com.example.pressurecalcapp.R
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
+import com.example.pressurecalcapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    val rubyView = RubyFragment()
-    val diamondView = DiamondFragment()
+    //lateinit var binding : ActivityMainBinding
+
+    private val rubyView = RubyFragment()
+    private val diamondView = DiamondFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        var binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         supportFragmentManager.beginTransaction().add(R.id.mainFragmentContainer, rubyView).commit()
 
-        val rubyTab = findViewById<Button>(R.id.rubyTab)
-        val diaTab = findViewById<Button>(R.id.diamondTab)
-
-        rubyTab.setOnClickListener {
+        binding.rubyTab.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, rubyView).commit()
         }
-        diaTab.setOnClickListener {
+
+        binding.diamondTab.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.mainFragmentContainer, diamondView).commit()
         }
     }

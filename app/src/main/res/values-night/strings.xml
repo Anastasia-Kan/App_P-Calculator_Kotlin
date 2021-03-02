@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="diamond_anvil_raman">Diamond Anvil Raman</string>
+    <string name="diamond_raman">Diamond Raman</string>
+    <string name="Ambient_diamond">Ambient Pressure Diamond Peak (cm-1)</string>
+</resources>

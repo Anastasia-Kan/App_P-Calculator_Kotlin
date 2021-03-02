@@ -14,13 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:background="@color/gray_background"
         android:orientation="vertical"
         tools:context=".RubyFragment"
         tools:ignore="HardcodedText,OnClick">
 
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroupRubyTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -86,7 +87,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintEnd_toStartOf="@+id/refRuby"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
 
         <EditText
             android:id="@+id/refRuby"
@@ -95,12 +96,14 @@
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
+            android:background="@drawable/white_rounded_textview"
             android:ems="10"
+            android:gravity="center"
             android:inputType="numberDecimal"
             android:singleLine="true"
             android:text="694.22"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
 
         <TextView
             android:id="@+id/refTempLabel"
@@ -132,7 +135,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
+            android:background="@drawable/white_rounded_textview"
             android:ems="10"
+            android:gravity="center"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRuby" />
@@ -143,7 +148,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
+            android:background="@drawable/white_rounded_textview"
             android:ems="10"
+            android:gravity="center"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotRuby" />
@@ -180,7 +187,9 @@
             android:layout_height="40sp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
+            android:background="@drawable/white_rounded_textview"
             android:ems="10"
+            android:gravity="center"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRubyTempET" />
@@ -192,7 +201,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="Calculate Pressure"
+            android:text="@string/calculate_P"
+            android:textColor="@color/button_text"
+            app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/resPressureLable" />
@@ -203,7 +214,7 @@
             android:layout_height="40sp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/black_border_rectangle"
+            android:background="@drawable/white_rounded_textview"
             android:gravity="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -215,7 +226,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
             android:text="Info"
+            android:textColor="@color/button_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

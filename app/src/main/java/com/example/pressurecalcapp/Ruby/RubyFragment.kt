@@ -11,16 +11,22 @@ import android.view.ViewGroup
 import android.widget.RadioGroup
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import com.example.pressurecalcapp.Ruby.RubyViewModel
 import com.example.pressurecalcapp.databinding.FragmentRubyBinding
 import androidx.databinding.DataBindingUtil.inflate as dataBindingUtilInflate
 
 class RubyFragment : Fragment(), View.OnClickListener {
 
-    val TAG = "MyDebug"
+    private lateinit var viewModel : RubyViewModel
+
+    private val TAG = "MyDebug"
 
     private lateinit var binding: FragmentRubyBinding
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +37,8 @@ class RubyFragment : Fragment(), View.OnClickListener {
         /*binding.infoRubyBTN.setOnClickListener( // App crashes with click
             Navigation.createNavigateOnClickListener(R.id.action_rubyFragment_to_infoFragment)
         )*/
+        Log.i(TAG, "Called ViewModelProvider" )
+        viewModel = ViewModelProvider(this).get(RubyViewModel::class.java)
         return binding.root
     }
 
@@ -40,6 +48,18 @@ class RubyFragment : Fragment(), View.OnClickListener {
         binding.shenSegment.setOnClickListener(this)
         binding.maoHydroSegment.setOnClickListener(this)
         binding.maoNHydroSegment.setOnClickListener(this)
+
+        val resPressureTV = binding.resPressureTV
+        val refRubyET = binding.refRuby.text
+        val gotRubyET = binding.gotRuby.text
+
+        viewModel.refRuby = refRubyET.toString()
+
+        binding.calcPressureBTN.setOnClickListener() {
+            viewModel.calcPclicked()
+        }
+
+        resPressureTV.text = viewModel.refRuby
     }
 
     override fun onClick(view: View?) {

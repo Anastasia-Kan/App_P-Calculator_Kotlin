@@ -164,6 +164,7 @@
             android:layout_marginEnd="@dimen/very_small_margin8"
             android:text="@string/calculate_P"
             android:textColor="@color/button_text"
+            android:textStyle="bold"
             app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -178,6 +179,7 @@
             android:backgroundTint="@color/white"
             android:text="Info"
             android:textColor="@color/button_text"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

@@ -99,9 +99,9 @@
             android:background="@drawable/white_rounded_textview"
             android:ems="10"
             android:gravity="center"
+            android:hint="694.22"
             android:inputType="numberDecimal"
             android:singleLine="true"
-            android:text="694.22"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
 
@@ -138,6 +138,7 @@
             android:background="@drawable/white_rounded_textview"
             android:ems="10"
             android:gravity="center"
+            android:hint="298"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRuby" />
@@ -151,6 +152,7 @@
             android:background="@drawable/white_rounded_textview"
             android:ems="10"
             android:gravity="center"
+            android:hint="298"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotRuby" />
@@ -190,6 +192,7 @@
             android:background="@drawable/white_rounded_textview"
             android:ems="10"
             android:gravity="center"
+            android:hint="694.22"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRubyTempET" />
@@ -203,6 +206,7 @@
             android:layout_marginEnd="8dp"
             android:text="@string/calculate_P"
             android:textColor="@color/button_text"
+            android:textStyle="bold"
             app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -229,6 +233,7 @@
             android:backgroundTint="@color/white"
             android:text="Info"
             android:textColor="@color/button_text"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

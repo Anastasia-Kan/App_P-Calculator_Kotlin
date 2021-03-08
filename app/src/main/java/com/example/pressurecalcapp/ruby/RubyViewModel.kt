@@ -1,4 +1,4 @@
-package com.example.pressurecalcapp.Ruby
+package com.example.pressurecalcapp.ruby
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -13,7 +13,7 @@ class RubyViewModel : ViewModel() {
         Log.i(TAG, "RubyViewModel created")
     }
 
-    fun calcPclicked() {
+    fun calcPClicked() {
         Log.i(TAG, "refRuby = $refRuby")
     }
 

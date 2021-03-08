@@ -1,18 +1,10 @@
 package com.example.pressurecalcapp
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatRadioButton
-import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.setContentView
-import com.example.pressurecalcapp.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,17 +13,19 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = "MyDebug"
 
-    @SuppressLint("ResourceAsColor")
+    //@SuppressLint("ResourceAsColor") // WHAT is THAT???
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
+        /*var binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
         supportFragmentManager.beginTransaction().add(R.id.mainNavHostFragment, rubyView).commit()
 
         val rubyTab = binding.rubyTab
+        val diamondTab = binding.diamondTab*/
 
-        val diamondTab = binding.diamondTab
+        val rubyTab = findViewById<Button>(R.id.rubyTab)
 
         rubyTab.setOnClickListener {
             // State doesn't change onClick - backgroundTint is not changing
@@ -43,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             //TODO: save local var Tab-state
         }
 
+        val diamondTab = findViewById<Button>(R.id.diamondTab)
         diamondTab.setOnClickListener {
             diamondTab.isSelected != diamondTab.isSelected
             Log.i(TAG, "diamondTab clicked")

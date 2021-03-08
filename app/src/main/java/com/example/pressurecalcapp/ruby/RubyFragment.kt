@@ -1,32 +1,23 @@
 package com.example.pressurecalcapp
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioGroup
-import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import com.example.pressurecalcapp.Ruby.RubyViewModel
+import androidx.navigation.fragment.findNavController
+import com.example.pressurecalcapp.ruby.RubyViewModel
 import com.example.pressurecalcapp.databinding.FragmentRubyBinding
-import androidx.databinding.DataBindingUtil.inflate as dataBindingUtilInflate
 
 class RubyFragment : Fragment(), View.OnClickListener {
 
     private lateinit var viewModel : RubyViewModel
-
-    private val TAG = "MyDebug"
-
     private lateinit var binding: FragmentRubyBinding
 
-
+    private val TAG = "MyDebug"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,11 +25,20 @@ class RubyFragment : Fragment(), View.OnClickListener {
     ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ruby, container, false)
-        /*binding.infoRubyBTN.setOnClickListener( // App crashes with click
-            Navigation.createNavigateOnClickListener(R.id.action_rubyFragment_to_infoFragment)
-        )*/
+        binding.infoRubyBTN.setOnClickListener { // App crashes with click
+            this.findNavController().navigate(R.id.action_rubyFragment_to_infoFragment)
+        }
+        /*
+        binding.buttonRules.setOnClickListener {
+            this.findNavController().navigate(R.id.action_gameFragment_to_rulesFragment)
+        }
+         */
         Log.i(TAG, "Called ViewModelProvider" )
         viewModel = ViewModelProvider(this).get(RubyViewModel::class.java)
+        binding.rubyViewModel = viewModel
+        binding.lifecycleOwner = this
+
+
         return binding.root
     }
 
@@ -56,7 +56,7 @@ class RubyFragment : Fragment(), View.OnClickListener {
         viewModel.refRuby = refRubyET.toString()
 
         binding.calcPressureBTN.setOnClickListener() {
-            viewModel.calcPclicked()
+            viewModel.calcPClicked()
         }
 
         resPressureTV.text = viewModel.refRuby

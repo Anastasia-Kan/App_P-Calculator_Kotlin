@@ -7,6 +7,9 @@
 
     <data>
 
+        <variable
+            name="rubyViewModel"
+            type="com.example.pressurecalcapp.ruby.RubyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

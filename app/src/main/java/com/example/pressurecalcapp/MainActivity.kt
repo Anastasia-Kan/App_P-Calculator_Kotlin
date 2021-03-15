@@ -16,34 +16,26 @@ class MainActivity : AppCompatActivity() {
     //@SuppressLint("ResourceAsColor") // WHAT is THAT???
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
 
-        /*var binding: ActivityMainBinding = setContentView(this, R.layout.activity_main)
-        supportFragmentManager.beginTransaction().add(R.id.mainNavHostFragment, rubyView).commit()
-
-        val rubyTab = binding.rubyTab
-        val diamondTab = binding.diamondTab*/
-
         val rubyTab = findViewById<Button>(R.id.rubyTab)
+        val diamondTab = findViewById<Button>(R.id.diamondTab)
 
         rubyTab.setOnClickListener {
-            // State doesn't change onClick - backgroundTint is not changing
-            rubyTab.isSelected != rubyTab.isSelected
+            rubyTab.isSelected != rubyTab.isSelected // Done to change BTN's bckgr, but doesn't work
             Log.i(TAG, "rubyTab clicked")
             supportFragmentManager.beginTransaction().replace(R.id.mainNavHostFragment, rubyView).commit()
-
-
             //TODO: save local var Tab-state
+
+            //TODO: replace FragmentManager with Navigation:
+        // "replace" fragment leads to lose of navigation actions
         }
 
-        val diamondTab = findViewById<Button>(R.id.diamondTab)
+
         diamondTab.setOnClickListener {
-            diamondTab.isSelected != diamondTab.isSelected
+            diamondTab.isSelected != diamondTab.isSelected // Done to change BTN's bckgr, but doesn't work
             Log.i(TAG, "diamondTab clicked")
-
             supportFragmentManager.beginTransaction().replace(R.id.mainNavHostFragment, diamondView).commit()
-
             //TODO: save local var Tab-state
         }
     }

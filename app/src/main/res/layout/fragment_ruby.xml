@@ -26,6 +26,7 @@
         <RadioGroup
             android:id="@+id/radioGroupRubyTab"
             android:layout_width="match_parent"
+            android:checkedButton="@={rubyViewModel.calibration}"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
@@ -104,6 +105,7 @@
             android:gravity="center"
             android:hint="694.22"
             android:inputType="numberDecimal"
+            android:text = "@={rubyViewModel.refRubyString}"
             android:singleLine="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
@@ -117,7 +119,7 @@
             android:gravity="center"
             android:text="at T"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/refRubyTempET"
+            app:layout_constraintEnd_toStartOf="@+id/refTemp"
             app:layout_constraintTop_toBottomOf="@+id/RefRubyLabel" />
 
         <TextView
@@ -129,11 +131,11 @@
             android:gravity="center"
             android:text="at T"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/gotRubyTempET"
+            app:layout_constraintEnd_toStartOf="@+id/gotTemp"
             app:layout_constraintTop_toBottomOf="@+id/GotRubyLabel" />
 
         <EditText
-            android:id="@+id/refRubyTempET"
+            android:id="@+id/refTemp"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
@@ -142,12 +144,13 @@
             android:ems="10"
             android:gravity="center"
             android:hint="298"
+            android:text = "@={rubyViewModel.refTempString}"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRuby" />
 
         <EditText
-            android:id="@+id/gotRubyTempET"
+            android:id="@+id/gotTemp"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
@@ -156,6 +159,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="298"
+            android:text = "@={rubyViewModel.gotTempString}"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotRuby" />
@@ -183,7 +187,7 @@
             android:textColor="#F44336"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/resPressureTV"
+            app:layout_constraintEnd_toStartOf="@+id/rubyResP"
             app:layout_constraintTop_toBottomOf="@+id/gotTempLabel" />
 
         <EditText
@@ -196,18 +200,20 @@
             android:ems="10"
             android:gravity="center"
             android:hint="694.22"
+            android:text = "@={rubyViewModel.gotRubyString}"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/refRubyTempET" />
+            app:layout_constraintTop_toBottomOf="@+id/refTemp" />
 
         <Button
-            android:id="@+id/calcPressureBTN"
+            android:id="@+id/rubyCalcP"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="@string/calculate_P"
+            android:onClick="@{() -> rubyViewModel.calculatePressureRubyClicked()}"
             android:textColor="@color/button_text"
             android:textStyle="bold"
             app:backgroundTint="@color/white"
@@ -216,7 +222,7 @@
             app:layout_constraintTop_toBottomOf="@+id/resPressureLable" />
 
         <TextView
-            android:id="@+id/resPressureTV"
+            android:id="@+id/rubyResP"
             android:layout_width="100sp"
             android:layout_height="40sp"
             android:layout_marginTop="16dp"
@@ -224,11 +230,12 @@
             android:background="@drawable/white_rounded_textview"
             android:gravity="center"
             android:textSize="18sp"
+            android:text = "@{rubyViewModel.resultPressureString}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gotRubyTempET" />
+            app:layout_constraintTop_toBottomOf="@+id/gotTemp" />
 
         <Button
-            android:id="@+id/infoRubyBTN"
+            android:id="@+id/rubyInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"

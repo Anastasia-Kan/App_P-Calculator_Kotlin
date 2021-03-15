@@ -6,7 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="diamondViewModel"
+            type="com.example.pressurecalcapp.diamond.DiamondViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +21,7 @@
             android:id="@+id/radioGroupDiaTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checkedButton="@={diamondViewModel.method}"
             android:layout_marginStart="@dimen/very_small_margin8"
             android:layout_marginTop="@dimen/very_small_margin8"
             android:layout_marginEnd="@dimen/very_small_margin8"
@@ -29,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/shen_segment"
+                android:id="@+id/dia_raman_segment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -42,7 +45,7 @@
             <!--            android:onClick="onSegmentClicked"-->
 
             <androidx.appcompat.widget.AppCompatRadioButton
-                android:id="@+id/mao_hydro_segment"
+                android:id="@+id/dia_anvil_raman_segment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -85,17 +88,18 @@
             android:gravity="center"
             android:text="@string/ambient_diamond"
             android:textSize="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/ambPeak"
+            app:layout_constraintEnd_toStartOf="@+id/refPeak"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailsTV" />
 
         <EditText
-            android:id="@+id/ambPeak"
+            android:id="@+id/refPeak"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/large_margin32"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
+            android:text = "@={diamondViewModel.refPeakString}"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:gravity="center"
@@ -113,34 +117,36 @@
             android:gravity="center"
             android:text="@string/measured_peak"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal2"
+            app:layout_constraintEnd_toStartOf="@+id/gotPeak"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ambientPressPeakLabel" />
 
         <EditText
-            android:id="@+id/editTextNumberDecimal2"
+            android:id="@+id/gotPeak"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/large_margin32"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
+            android:text = "@={diamondViewModel.gotPeakString}"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
             android:gravity="center"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ambPeak" />
+            app:layout_constraintTop_toBottomOf="@+id/refPeak" />
 
         <TextView
-            android:id="@+id/resultP"
+            android:id="@+id/diaResP"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/large_margin32"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
+            android:text = "@{diamondViewModel.resultPressureString}"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+            app:layout_constraintTop_toBottomOf="@+id/gotPeak" />
 
         <TextView
             android:id="@+id/textView5"
@@ -152,17 +158,18 @@
             android:textColor="#F44336"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/resultP"
+            app:layout_constraintEnd_toStartOf="@+id/diaResP"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
-            android:id="@+id/calculatePbtn"
+            android:id="@+id/diaCalcP"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/very_small_margin8"
             android:layout_marginTop="@dimen/large_margin32"
             android:layout_marginEnd="@dimen/very_small_margin8"
             android:text="@string/calculate_P"
+            android:onClick="@{() -> diamondViewModel.calculatePressureDiamondClicked()}"
             android:textColor="@color/button_text"
             android:textStyle="bold"
             app:backgroundTint="@color/white"
@@ -171,7 +178,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <Button
-            android:id="@+id/infoDiaBTN"
+            android:id="@+id/diaInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/very_small_margin8"

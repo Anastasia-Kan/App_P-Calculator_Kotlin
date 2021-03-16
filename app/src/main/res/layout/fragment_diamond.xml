@@ -181,14 +181,38 @@
             android:id="@+id/diaInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="@dimen/very_small_margin8"
-            android:layout_marginBottom="@dimen/very_small_margin8"
             android:backgroundTint="@color/white"
             android:text="Info"
             android:textColor="@color/button_text"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diaCalcP" />
+
+        <Button
+            android:id="@+id/rubyTabBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Ruby"
+            android:backgroundTint="@color/tab_button"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/diamondTabBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Diamond"
+            android:backgroundTint="@color/gray_background"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

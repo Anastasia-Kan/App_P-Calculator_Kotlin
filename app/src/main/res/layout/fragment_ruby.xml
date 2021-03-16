@@ -26,11 +26,11 @@
         <RadioGroup
             android:id="@+id/radioGroupRubyTab"
             android:layout_width="match_parent"
-            android:checkedButton="@={rubyViewModel.calibration}"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
+            android:checkedButton="@={rubyViewModel.calibration}"
             android:orientation="horizontal"
             android:padding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -105,8 +105,8 @@
             android:gravity="center"
             android:hint="694.22"
             android:inputType="numberDecimal"
-            android:text = "@={rubyViewModel.refRubyString}"
             android:singleLine="true"
+            android:text="@={rubyViewModel.refRubyString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
 
@@ -144,8 +144,8 @@
             android:ems="10"
             android:gravity="center"
             android:hint="298"
-            android:text = "@={rubyViewModel.refTempString}"
             android:inputType="numberDecimal"
+            android:text="@={rubyViewModel.refTempString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRuby" />
 
@@ -159,8 +159,8 @@
             android:ems="10"
             android:gravity="center"
             android:hint="298"
-            android:text = "@={rubyViewModel.gotTempString}"
             android:inputType="numberDecimal"
+            android:text="@={rubyViewModel.gotTempString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotRuby" />
 
@@ -200,8 +200,8 @@
             android:ems="10"
             android:gravity="center"
             android:hint="694.22"
-            android:text = "@={rubyViewModel.gotRubyString}"
             android:inputType="numberDecimal"
+            android:text="@={rubyViewModel.gotRubyString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refTemp" />
 
@@ -212,8 +212,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/calculate_P"
             android:onClick="@{() -> rubyViewModel.calculatePressureRubyClicked()}"
+            android:text="@string/calculate_P"
             android:textColor="@color/button_text"
             android:textStyle="bold"
             app:backgroundTint="@color/white"
@@ -229,8 +229,8 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/white_rounded_textview"
             android:gravity="center"
+            android:text="@{rubyViewModel.resultPressureString}"
             android:textSize="18sp"
-            android:text = "@{rubyViewModel.resultPressureString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotTemp" />
 
@@ -238,14 +238,38 @@
             android:id="@+id/rubyInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/white"
             android:text="Info"
             android:textColor="@color/button_text"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rubyCalcP" />
+
+        <Button
+            android:id="@+id/rubyTabBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Ruby"
+            android:backgroundTint="@color/gray_background"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/diamondTabBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Diamond"
+            android:backgroundTint="@color/tab_button"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

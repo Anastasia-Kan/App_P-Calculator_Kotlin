@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
     val TAG = "MyDebug"
 
-    //@SuppressLint("ResourceAsColor") // WHAT is THAT???
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val rubyTab = findViewById<Button>(R.id.rubyTab)
         val diamondTab = findViewById<Button>(R.id.diamondTab)
 
+
+        //TODO: move all navigation to Fragments; create to different disigns for Activ and Nonactiv buttons
         rubyTab.setOnClickListener {
             rubyTab.isSelected != rubyTab.isSelected // Done to change BTN's bckgr, but doesn't work
             Log.i(TAG, "rubyTab clicked")

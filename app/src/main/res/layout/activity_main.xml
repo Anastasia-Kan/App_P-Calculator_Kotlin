@@ -28,40 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/rubyTab"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:backgroundTint="@color/tab_button"
-            android:insetTop="0dp"
-
-            android:insetBottom="0dp"
-            android:state_selected="false"
-            android:text="@string/ruby"
-            android:textColor="@color/black"
-            app:iconPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/diamondTab"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/diamondTab"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:backgroundTint="@color/tab_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:padding="@dimen/broad_padding16"
-            android:state_selected="false"
-            android:text="@string/diamond"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/rubyTab"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

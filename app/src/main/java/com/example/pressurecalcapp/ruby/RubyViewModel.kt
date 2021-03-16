@@ -17,6 +17,8 @@ class RubyViewModel : ViewModel() {
     var gotTempString = MutableLiveData<String>()
     var resultPressureString = MutableLiveData<String>()
 
+    var k : Int = 0
+
     init {
         calibration.value = R.id.shen_segment
         Log.i(TAG, "RubyViewModel created")
@@ -24,28 +26,39 @@ class RubyViewModel : ViewModel() {
 
     fun calculatePressureRubyClicked() {
 
-        when (calibration.value) {
-            R.id.shen_segment -> Log.i(TAG, "onClick: shen_segment")
-            R.id.mao_hydro_segment -> Log.i(TAG, "onClick: mao_hydro_segment")
-            R.id.mao_nHydro_segment -> Log.i(TAG, "onClick: mao_nHydro_segment")
-        }
-
         val refRuby = refRubyString.value?.toDoubleOrNull() ?: 694.22
         val refTemp = refTempString.value?.toDoubleOrNull() ?: 298
         val gotRuby = gotRubyString.value?.toDoubleOrNull() ?: 694.22
         val gotTemp = gotTempString.value?.toDoubleOrNull() ?: 298
 
 
+        when (calibration.value) {
+            R.id.shen_segment -> {
+                CalculationMethod.sum(4, refRuby)
+                Log.i(TAG, "onClick: shen_segment")}
+            R.id.mao_hydro_segment -> {
+                k = 5
+                Log.i(TAG, "onClick: mao_hydro_segment")}
+            R.id.mao_nHydro_segment -> {
+                k = 6
+                Log.i(TAG, "onClick: mao_nHydro_segment")}
+        }
+
+
+
+        refRubyString.value = refRuby.toString()
+        refTempString.value = refTemp.toString()
+        gotRubyString.value = gotRuby.toString()
+        gotTempString.value = gotTemp.toString()
+
+
+
+
         Log.i(TAG, "refRuby is $refRuby")
 
+        val testNumber = refRuby + gotRuby
 
-
+        resultPressureString.value = testNumber.toString()
 
     }
-
-    fun isLegalNumber(number : String)
-    {
-        Log.i(TAG, "isLegalNumber activated")
-    }
-
 }

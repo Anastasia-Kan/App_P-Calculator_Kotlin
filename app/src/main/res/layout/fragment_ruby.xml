@@ -62,7 +62,6 @@
                 android:gravity="center"
                 android:text="Mao et al. 1986"
                 android:textColor="@color/black" />
-            <!--            android:onClick="onSegmentClicked"-->
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/mao_nHydro_segment"
@@ -73,11 +72,8 @@
                 android:button="@android:color/transparent"
                 android:checked="true"
                 android:gravity="center"
-
                 android:text="Mao non-hydro"
                 android:textColor="@color/black" />
-            <!--        android:onClick="onSegmentClicked"-->
-
         </RadioGroup>
 
         <TextView
@@ -109,6 +105,45 @@
             android:text="@={rubyViewModel.refRubyString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRefTemp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:checkedButton="@={rubyViewModel.referenceTempScale}"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/refTempLabel"
+            app:layout_constraintTop_toBottomOf="@+id/RefRubyLabel"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ref_kelvin_segment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shen_button_selector"
+                android:button="@android:color/transparent"
+                android:checked="false"
+                android:gravity="center"
+                android:text="K"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/ref_celsius_segment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/mao_non_hydro_selector"
+                android:button="@android:color/transparent"
+                android:checked="true"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/black" />
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/refTempLabel"
@@ -204,6 +239,47 @@
             android:text="@={rubyViewModel.gotRubyString}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refTemp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupGotTemp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:checkedButton="@={rubyViewModel.measuredTempScale}"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@id/gotTempLabel"
+            app:layout_constraintTop_toBottomOf="@id/GotRubyLabel"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/measured_kelvin_segment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shen_button_selector"
+                android:button="@android:color/transparent"
+                android:checked="false"
+                android:gravity="center"
+                android:text="K"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/measured_celsius_segment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/mao_non_hydro_selector"
+                android:button="@android:color/transparent"
+                android:checked="true"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="@color/black" />
+
+        </RadioGroup>
+
+
 
         <Button
             android:id="@+id/rubyCalcP"

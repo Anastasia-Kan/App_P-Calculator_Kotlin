@@ -11,6 +11,8 @@ class RubyViewModel : ViewModel() {
     private val TAG = "MyDebug"
 
     var calibration = MutableLiveData<Int>()
+    var referenceTempScale = MutableLiveData<Int>()
+    var measuredTempScale = MutableLiveData<Int>()
 
     var refRubyString = MutableLiveData<String>()
     var refTempString = MutableLiveData<String>()
@@ -20,6 +22,8 @@ class RubyViewModel : ViewModel() {
 
     init {
         calibration.value = R.id.shen_segment
+        referenceTempScale.value = R.id.ref_kelvin_segment
+        measuredTempScale.value = R.id.measured_kelvin_segment
         Log.i(TAG, "RubyViewModel created")
     }
 
@@ -29,6 +33,24 @@ class RubyViewModel : ViewModel() {
         val refTemp = refTempString.value?.toDoubleOrNull() ?: 298
         val gotRuby = gotRubyString.value?.toDoubleOrNull() ?: 694.22
         val gotTemp = gotTempString.value?.toDoubleOrNull() ?: 298
+
+        when (referenceTempScale.value) {
+            R.id.ref_kelvin_segment -> {
+                Log.i(TAG, "Kelvin scale chosen")
+            }
+            R.id.ref_celsius_segment -> {
+                Log.i(TAG, "Celsius scale chosen")
+            }
+        }
+
+        when (measuredTempScale.value) {
+            R.id.measured_kelvin_segment -> {
+                Log.i(TAG, "Kelvin scale chosen")
+            }
+            R.id.measured_celsius_segment -> {
+                Log.i(TAG, "Celsius scale chosen")
+            }
+        }
 
 
         when (calibration.value) {

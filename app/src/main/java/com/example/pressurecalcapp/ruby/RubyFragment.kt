@@ -6,12 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.TextView
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.pressurecalcapp.ruby.RubyViewModel
@@ -22,9 +17,6 @@ class RubyFragment : Fragment() {
     private lateinit var viewModel : RubyViewModel
     private lateinit var binding: FragmentRubyBinding
 
-
-    private val TAG = "MyDebug"
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +26,12 @@ class RubyFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(RubyViewModel::class.java)
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
+
+        binding.diamondTabBTN.setOnClickListener {
+            Log.i(TAG, "diamondTab clicked")
+            this.findNavController().navigate(R.id.action_rubyFragment_to_diamondFragment)
+            //TODO: save local var Tab-state
+        }
 
         binding.rubyInfo.setOnClickListener {
             Log.i(TAG, "Info button clicked")

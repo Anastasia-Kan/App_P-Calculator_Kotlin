@@ -14,13 +14,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
+        android:id="@+id/constraintLayoutRuby"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="@color/gray_background"
         android:orientation="vertical"
-        tools:context=".RubyFragment"
-        tools:ignore="HardcodedText,OnClick">
+        tools:context=".RubyFragment">
 
 
         <RadioGroup
@@ -250,25 +250,31 @@
         <Button
             android:id="@+id/rubyTabBTN"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Ruby"
+            android:layout_height="50dp"
             android:backgroundTint="@color/gray_background"
+            android:text="Ruby"
             android:textColor="@color/black"
+            app:iconPadding="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/diamondTabBTN"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Diamond"
+            android:layout_height="50dp"
             android:backgroundTint="@color/tab_button"
+            android:paddingLeft="0dp"
+            android:paddingTop="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            android:text="Diamond"
             android:textColor="@color/black"
+            app:iconPadding="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />
 
 

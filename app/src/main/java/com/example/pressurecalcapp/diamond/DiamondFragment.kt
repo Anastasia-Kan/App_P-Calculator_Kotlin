@@ -16,7 +16,6 @@ class DiamondFragment : Fragment() {
 
     private lateinit var viewModel : DiamondViewModel
     private lateinit var binding : FragmentDiamondBinding
-    private val TAG = "MyDebug"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +27,14 @@ class DiamondFragment : Fragment() {
         binding.diamondViewModel = viewModel
         binding.lifecycleOwner = this
 
+        binding.rubyTabBTN.setOnClickListener {
+            Log.i(TAG, "Ruby-tab button clicked")
+            this.findNavController().navigate(R.id.action_diamondFragment_to_rubyFragment)
+        }
 
         binding.diaInfo.setOnClickListener { // App crashes on click
-            //this.findNavController().navigate(R.id.action_diamondFragment_to_infoFragment)
             Log.i(TAG, "Info button clicked")
+            this.findNavController().navigate(R.id.action_diamondFragment_to_infoFragment)
         }
 
         return binding.root

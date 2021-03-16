@@ -4,10 +4,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pressurecalcapp.R
+import com.example.pressurecalcapp.TAG
 
 class DiamondViewModel : ViewModel() {
-
-    private val TAG = "MyDebug"
 
     var method = MutableLiveData<Int>()
     var refPeakString = MutableLiveData<String>()

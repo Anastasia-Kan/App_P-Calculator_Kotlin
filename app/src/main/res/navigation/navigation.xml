@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_diamondFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_diamondFragment_to_rubyFragment"
+            app:destination="@id/rubyFragment" />
     </fragment>
     <fragment
         android:id="@+id/rubyFragment"
@@ -20,6 +23,9 @@
         <action
             android:id="@+id/action_rubyFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_rubyFragment_to_diamondFragment"
+            app:destination="@id/diamondFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"

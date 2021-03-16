@@ -3,6 +3,7 @@ package com.example.pressurecalcapp.ruby
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.pressurecalcapp.CalculationMethods
 import com.example.pressurecalcapp.R
 
 class RubyViewModel : ViewModel() {
@@ -16,8 +17,6 @@ class RubyViewModel : ViewModel() {
     var gotRubyString = MutableLiveData<String>()
     var gotTempString = MutableLiveData<String>()
     var resultPressureString = MutableLiveData<String>()
-
-    var k : Int = 0
 
     init {
         calibration.value = R.id.shen_segment
@@ -34,13 +33,13 @@ class RubyViewModel : ViewModel() {
 
         when (calibration.value) {
             R.id.shen_segment -> {
-                CalculationMethod.sum(4, refRuby)
+                CalculationMethods.Shen(refRuby, gotRuby)
                 Log.i(TAG, "onClick: shen_segment")}
             R.id.mao_hydro_segment -> {
-                k = 5
+                CalculationMethods.Mao(7.665, refRuby, gotRuby)
                 Log.i(TAG, "onClick: mao_hydro_segment")}
             R.id.mao_nHydro_segment -> {
-                k = 6
+                CalculationMethods.Mao(5.0, refRuby, gotRuby)
                 Log.i(TAG, "onClick: mao_nHydro_segment")}
         }
 

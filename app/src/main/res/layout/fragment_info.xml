@@ -5,7 +5,6 @@
     tools:context=".InfoFragment">
 
     <data>
-
         <variable
             name="infoViewModel"
             type="com.example.pressurecalcapp.info.InfoViewModel" />
@@ -24,7 +23,7 @@
             android:layout_height="50dp"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
+            android:theme="?attr/toolbarStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

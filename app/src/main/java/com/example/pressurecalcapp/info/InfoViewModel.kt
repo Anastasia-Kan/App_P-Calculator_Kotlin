@@ -13,6 +13,6 @@ class InfoViewModel : ViewModel() {
     init {
         //infoTextString.value = infoText
 
-        Log.i(TAG, "InfoViewModel created, infoText = Xa-xa-xa")
+        Log.i(TAG, "InfoViewModel created")
     }
 }

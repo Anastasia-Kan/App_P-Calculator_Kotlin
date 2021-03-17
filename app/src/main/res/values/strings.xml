@@ -10,8 +10,8 @@
     <string name="ambient_diamond">Ambient pressure diamond peak (cm-1)</string>
     <string name="measured_peak">Measured position (cm-1)</string>
     <string name="calculate_P">Calculate pressure</string>
-    <string name="info_ruby">Info RUBY</string>
-    <!--<string name="info_ruby">Pressure dependence of ruby shift is taken from:
+
+    <string name="info_ruby">Pressure dependence of ruby shift is taken from:
 
 Shen G., Wang Y., Dewaele A. et al. (2020) High Pres. Res. doi: 10.1080/08957959.2020.1791107
 
@@ -20,7 +20,7 @@ Mao H.K., Xu J., and Bell P.M. (1986) J. Geophys. Res. 91, 4673
 
 Temperature correction comes from:
 
-Datchi F., Dewaele A., Loubeyre P., et al. (2007) High Press. Res. 27, No 4, 447-463</string>-->
+Datchi F., Dewaele A., Loubeyre P., et al. (2007) High Press. Res. 27, No 4, 447-463</string>
 
     <string name="info_diamond">Calibration for Diamond anvil Raman comes from:
 

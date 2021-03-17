@@ -17,8 +17,8 @@ class RubyFragment : Fragment() {
 
     private lateinit var viewModel : RubyViewModel
     private lateinit var binding: FragmentRubyBinding
-    private lateinit var infoViewModel: InfoViewModel
-    var infoFragment = InfoFragment()
+    //private lateinit var infoViewModel: InfoViewModel
+    //var infoFragment = InfoFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +30,7 @@ class RubyFragment : Fragment() {
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
 
-        infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
+        //infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         Log.i(TAG, "Ruby Fragment created")
 
@@ -41,11 +41,12 @@ class RubyFragment : Fragment() {
         }
 
         binding.rubyInfo.setOnClickListener {
+            var rubyInfoText = resources.getString(R.string.info_ruby)
             //infoViewModel.infoText = resources.getString(R.string.info_ruby)
             //infoViewModel.setInfoText()
-            infoFragment.infoText = resources.getString(R.string.info_ruby)
+            //infoFragment.infoText = resources.getString(R.string.info_ruby)
             this.findNavController().navigate(R.id.action_rubyFragment_to_infoFragment)
-            Log.i(TAG, "Info button clicked")
+            Log.i(TAG, "Info button clicked, infoText = $rubyInfoText")
         }
         return binding.root
     }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.pressurecalcapp.databinding.FragmentInfoBinding
 import com.example.pressurecalcapp.info.InfoViewModel
 
@@ -29,7 +30,12 @@ class InfoFragment : Fragment() {
         binding.infoViewModel = viewModel
         binding.lifecycleOwner = this
 
+        binding.infoToolbar.setNavigationIcon(R.drawable.back_arrow)
+        binding.infoToolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
+        infoText = resources.getString(R.string.info_ruby)
 
         binding.infoTV.setText(infoText)
         //binding.infoViewModel?.infoText = resources.getString(R.string.info_ruby)

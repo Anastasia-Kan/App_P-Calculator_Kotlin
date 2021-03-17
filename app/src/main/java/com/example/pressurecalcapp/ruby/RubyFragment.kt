@@ -17,7 +17,8 @@ class RubyFragment : Fragment() {
 
     private lateinit var viewModel : RubyViewModel
     private lateinit var binding: FragmentRubyBinding
-    //private lateinit var infoViewModel: InfoViewModel
+    private lateinit var infoViewModel: InfoViewModel
+    var infoFragment = InfoFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +30,7 @@ class RubyFragment : Fragment() {
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
 
-        //infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
+        infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
         binding.diamondTabBTN.setOnClickListener {
             Log.i(TAG, "diamondTab clicked")
@@ -40,6 +41,7 @@ class RubyFragment : Fragment() {
         binding.rubyInfo.setOnClickListener {
             //infoViewModel.infoText = resources.getString(R.string.info_ruby)
             //infoViewModel.setInfoText()
+            infoFragment.infoText = resources.getString(R.string.info_ruby)
             this.findNavController().navigate(R.id.action_rubyFragment_to_infoFragment)
             //Log.i(TAG, "Info button clicked: Text = ${infoViewModel.infoText}")
         }

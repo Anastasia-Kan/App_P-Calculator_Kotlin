@@ -11,11 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.pressurecalcapp.databinding.FragmentDiamondBinding
 import com.example.pressurecalcapp.diamond.DiamondViewModel
+import com.example.pressurecalcapp.info.InfoViewModel
 
 class DiamondFragment : Fragment() {
 
     private lateinit var viewModel : DiamondViewModel
     private lateinit var binding : FragmentDiamondBinding
+    private lateinit var infoViewModel: InfoViewModel
+    var infoFragment = InfoFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +30,8 @@ class DiamondFragment : Fragment() {
         binding.diamondViewModel = viewModel
         binding.lifecycleOwner = this
 
+        infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
+
         binding.rubyTabBTN.setOnClickListener {
             Log.i(TAG, "Ruby-tab button clicked")
             this.findNavController().navigate(R.id.action_diamondFragment_to_rubyFragment)
@@ -34,7 +39,11 @@ class DiamondFragment : Fragment() {
 
         binding.diaInfo.setOnClickListener { // App crashes on click
             Log.i(TAG, "Info button clicked")
+            infoFragment.infoText = resources.getString(R.string.info_diamond)
+            //infoViewModel.infoText = resources.getString(R.string.info_diamond)
+            //infoViewModel.setInfoText()
             this.findNavController().navigate(R.id.action_diamondFragment_to_infoFragment)
+            Log.i(TAG, "Info button clicked: Text = ${infoFragment.infoText}")
         }
 
         return binding.root

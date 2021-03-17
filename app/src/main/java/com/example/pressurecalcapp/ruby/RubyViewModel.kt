@@ -32,12 +32,25 @@ class RubyViewModel : ViewModel() {
     fun calculatePressureRubyClicked() {
 
         val refRuby = refRubyString.value?.toDoubleOrNull() ?: 694.22
-        val refTemp = refTempString.value?.toDoubleOrNull() ?: 298.0
         val gotRuby = gotRubyString.value?.toDoubleOrNull() ?: 694.22
-        val gotTemp = gotTempString.value?.toDoubleOrNull() ?: 298.0
+
+        val refTemp = if(referenceTempScale.value == R.id.ref_celsius_segment)
+        {
+            refTempString.value?.toDoubleOrNull() ?: 25.0
+        } else {
+            refTempString.value?.toDoubleOrNull() ?: 298.0
+        }
+
+        val gotTemp = if(measuredTempScale.value == R.id.measured_celsius_segment)
+        {
+            gotTempString.value?.toDoubleOrNull() ?: 25.0
+        } else {
+            gotTempString.value?.toDoubleOrNull() ?: 298.0
+        }
 
         var RT = refTemp
         var T = gotTemp
+
 
         if(referenceTempScale.value == R.id.ref_celsius_segment)
         {
@@ -46,9 +59,8 @@ class RubyViewModel : ViewModel() {
 
         if(measuredTempScale.value == R.id.measured_celsius_segment)
         {
-            T += 273
+            T += 273.0
         }
-
 
         val deltaRT = RT - 296.0
         Log.i(TAG, "RT = $RT")

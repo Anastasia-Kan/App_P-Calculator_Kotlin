@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DiamondFragment">
 
     <data>
         <variable
@@ -15,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_background"
-        android:orientation="vertical"
-        tools:context=".DiamondFragment">
+        android:orientation="vertical">
 
         <RadioGroup
             android:id="@+id/radioGroupDiaTab"
@@ -43,7 +41,6 @@
                 android:gravity="center"
                 android:text="@string/diamond_raman"
                 android:textColor="@color/black" />
-            <!--            android:onClick="onSegmentClicked"-->
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/dia_anvil_raman_segment"
@@ -56,7 +53,6 @@
                 android:gravity="center"
                 android:text="@string/diamond_anvil_raman"
                 android:textColor="@color/black" />
-            <!--            android:onClick="onSegmentClicked"-->
         </RadioGroup>
 
 
@@ -106,7 +102,8 @@
             android:gravity="center"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailsTV" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsTV"
+            android:autofillHints="1333.0" />
 
         <TextView
             android:id="@+id/textView3"
@@ -135,7 +132,8 @@
             android:gravity="center"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/refPeak" />
+            app:layout_constraintTop_toBottomOf="@+id/refPeak"
+            android:autofillHints="1333.0" />
 
         <TextView
             android:id="@+id/diaResP"
@@ -155,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:layout_marginEnd="@dimen/large_margin32"
-            android:text="Pressure (GPa)"
+            android:text="@string/pressure_gpa"
             android:textColor="#F44336"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -185,7 +183,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginEnd="@dimen/very_small_margin8"
             android:backgroundTint="@color/white"
-            android:text="Info"
+            android:text="@string/info"
             android:textColor="@color/button_text"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -195,7 +193,7 @@
             android:id="@+id/rubyTabBTN"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Ruby"
+            android:text="@string/ruby"
             android:backgroundTint="@color/tab_button"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -207,7 +205,7 @@
             android:id="@+id/diamondTabBTN"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Diamond"
+            android:text="@string/diamond"
             android:backgroundTint="@color/gray_background"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"

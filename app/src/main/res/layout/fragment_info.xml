@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InfoFragment">
 
     <data>
+
         <variable
             name="infoViewModel"
             type="com.example.pressurecalcapp.info.InfoViewModel" />
@@ -12,7 +13,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/gray_background"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/infoToolbar"
@@ -29,13 +33,21 @@
             android:id="@+id/infoTV"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@drawable/orange_rounded_textview"
             android:gravity="center"
-            android:text="TextView"
+            android:text="INFO TEXT"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoToolbar" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+    <!--
+    android:backgroundTint="@color/orange_background"
+    android:text="@{infoViewModel.infoTextString}"
+    -->

@@ -32,6 +32,8 @@ class RubyFragment : Fragment() {
 
         infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
 
+        Log.i(TAG, "Ruby Fragment created")
+
         binding.diamondTabBTN.setOnClickListener {
             Log.i(TAG, "diamondTab clicked")
             this.findNavController().navigate(R.id.action_rubyFragment_to_diamondFragment)
@@ -43,7 +45,7 @@ class RubyFragment : Fragment() {
             //infoViewModel.setInfoText()
             infoFragment.infoText = resources.getString(R.string.info_ruby)
             this.findNavController().navigate(R.id.action_rubyFragment_to_infoFragment)
-            //Log.i(TAG, "Info button clicked: Text = ${infoViewModel.infoText}")
+            Log.i(TAG, "Info button clicked")
         }
         return binding.root
     }

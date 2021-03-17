@@ -8,18 +8,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.pressurecalcapp.databinding.FragmentInfoBinding
-import com.example.pressurecalcapp.databinding.FragmentRubyBinding
 import com.example.pressurecalcapp.info.InfoViewModel
-import com.example.pressurecalcapp.ruby.RubyViewModel
 
 
 class InfoFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoBinding
     private lateinit var viewModel : InfoViewModel
-    var diamondFragment = DiamondFragment()
 
-    lateinit var infoText : String
+    var infoText = "Empty"
 
 
     override fun onCreateView(
@@ -32,7 +29,6 @@ class InfoFragment : Fragment() {
         binding.infoViewModel = viewModel
         binding.lifecycleOwner = this
 
-        infoText = "Empty"
 
 
         binding.infoTV.setText(infoText)

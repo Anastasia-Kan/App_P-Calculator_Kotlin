@@ -2,12 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".InfoFragment">
+    tools:context=".info.InfoFragment">
 
     <data>
-        <variable
-            name="infoViewModel"
-            type="com.example.pressurecalcapp.info.InfoViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,11 +30,12 @@
             android:id="@+id/infoTV"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="center"
+            android:gravity="start|top"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="INFO TEXT"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

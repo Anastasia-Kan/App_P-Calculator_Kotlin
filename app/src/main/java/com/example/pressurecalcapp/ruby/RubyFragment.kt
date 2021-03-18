@@ -1,4 +1,4 @@
-package com.example.pressurecalcapp
+package com.example.pressurecalcapp.ruby
 
 import android.os.Bundle
 import android.util.Log
@@ -9,16 +9,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.pressurecalcapp.ruby.RubyViewModel
+import com.example.pressurecalcapp.FROM_RUBY
+import com.example.pressurecalcapp.R
+import com.example.pressurecalcapp.TAG
 import com.example.pressurecalcapp.databinding.FragmentRubyBinding
-import com.example.pressurecalcapp.info.InfoViewModel
 
 class RubyFragment : Fragment() {
 
     private lateinit var viewModel : RubyViewModel
     private lateinit var binding: FragmentRubyBinding
-    //private lateinit var infoViewModel: InfoViewModel
-    //var infoFragment = InfoFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +29,6 @@ class RubyFragment : Fragment() {
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
 
-        //infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
-
         Log.i(TAG, "Ruby Fragment created")
 
         binding.diamondTabBTN.setOnClickListener {
@@ -41,12 +38,11 @@ class RubyFragment : Fragment() {
         }
 
         binding.rubyInfo.setOnClickListener {
-            var rubyInfoText = resources.getString(R.string.info_ruby)
-            //infoViewModel.infoText = resources.getString(R.string.info_ruby)
-            //infoViewModel.setInfoText()
-            //infoFragment.infoText = resources.getString(R.string.info_ruby)
-            this.findNavController().navigate(R.id.action_rubyFragment_to_infoFragment)
-            Log.i(TAG, "Info button clicked, infoText = $rubyInfoText")
+            this.findNavController().navigate(
+                RubyFragmentDirections.actionRubyFragmentToInfoFragment(
+                    FROM_RUBY
+                )
+            )
         }
         return binding.root
     }

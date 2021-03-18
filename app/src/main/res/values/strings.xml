@@ -11,24 +11,11 @@
     <string name="measured_peak">Measured position (cm-1)</string>
     <string name="calculate_P">Calculate pressure</string>
 
-    <string name="info_ruby">Pressure dependence of ruby shift is taken from:
+    <string name="info_ruby">\nPressure dependence of ruby shift is taken from:\n\nShen G., Wang Y., Dewaele A. et al. (2020) High Pres. Res. doi: 10.1080/08957959.2020.1791107\n\nMao H.K., Xu J., and Bell P.M. (1986) J. Geophys. Res. 91, 4673\n\n\n
+        Temperature correction comes from:\n\nDatchi F., Dewaele A., Loubeyre P., et al. (2007) High Press. Res. 27, No 4, 447-463</string>
 
-Shen G., Wang Y., Dewaele A. et al. (2020) High Pres. Res. doi: 10.1080/08957959.2020.1791107
-
-Mao H.K., Xu J., and Bell P.M. (1986) J. Geophys. Res. 91, 4673
-
-
-Temperature correction comes from:
-
-Datchi F., Dewaele A., Loubeyre P., et al. (2007) High Press. Res. 27, No 4, 447-463</string>
-
-    <string name="info_diamond">Calibration for Diamond anvil Raman comes from:
-
-Akahama Y. and Kawamura H., J. Appl. Phys. 100, 043516 (2006).
-
-Calibration for Diamond Raman is taken from:
-
-Dubrovinskaia N. et al., Appl. Phys. Lett. 97, 251903 (2010).</string>
+    <string name="info_diamond">\nCalibration for Diamond anvil Raman comes from:\n\nAkahama Y. and Kawamura H., J. Appl. Phys. 100, 043516 (2006).\n\n\n
+        Calibration for Diamond Raman is taken from:\n\nDubrovinskaia N. et al., Appl. Phys. Lett. 97, 251903 (2010).</string>
     <string name="pressure_gpa">Pressure (GPa)</string>
     <string name="info">Info</string>
     <string name="shen_et_al_2020">Shen et al. 2020</string>

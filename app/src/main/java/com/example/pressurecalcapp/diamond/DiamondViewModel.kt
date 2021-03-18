@@ -3,9 +3,7 @@ package com.example.pressurecalcapp.diamond
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.pressurecalcapp.CalculationMethods
-import com.example.pressurecalcapp.R
-import com.example.pressurecalcapp.TAG
+import com.example.pressurecalcapp.*
 
 class DiamondViewModel : ViewModel() {
 
@@ -18,8 +16,19 @@ class DiamondViewModel : ViewModel() {
 
     init
     {
-        method.value = R.id.dia_raman_segment
+        method.value = R.id.dia_anvil_raman_segment
+        detailsString.value = chooseOption()
         Log.i(TAG, "DiamondViewModel created")
+    }
+
+    fun chooseOption() : String
+    {
+        when (method.value)
+        {
+            R.id.dia_raman_segment -> detailsString.value = diamondRamanDetail.toString()
+            R.id.dia_anvil_raman_segment -> detailsString.value = diamondAnvilDetail.toString()
+        }
+        return detailsString.toString()
     }
 
 

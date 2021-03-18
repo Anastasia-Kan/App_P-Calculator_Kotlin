@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/diamondFragment"
-        android:name="com.example.pressurecalcapp.DiamondFragment"
+        android:name="com.example.pressurecalcapp.diamond.DiamondFragment"
         android:label="DiamondFragment" >
         <action
             android:id="@+id/action_diamondFragment_to_infoFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/rubyFragment"
-        android:name="com.example.pressurecalcapp.RubyFragment"
+        android:name="com.example.pressurecalcapp.ruby.RubyFragment"
         android:label="RubyFragment" >
         <action
             android:id="@+id/action_rubyFragment_to_infoFragment"
@@ -29,7 +29,12 @@
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.example.pressurecalcapp.InfoFragment"
+        android:name="com.example.pressurecalcapp.info.InfoFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info">
+        <argument
+            android:name="text_source"
+            android:defaultValue="from_ruby"
+            app:argType="string" />
+    </fragment>
 </navigation>

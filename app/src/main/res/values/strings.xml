@@ -4,7 +4,7 @@
     <string name="diamond_raman_details">Raman signal should be measured at the center of a culet.
         The "measured position" is the minimum of the Raman signal derivative</string>
     <string name="diamond_anvil_details">It is not a Raman signal from an anvil, it is a peak from
-        a diamond inside the sample chamber </string>
+        a diamond inside the sample chamber                                   \n </string>
     <string name="diamond_anvil_raman">Diamond Anvil Raman</string>
     <string name="diamond_raman">Diamond Raman</string>
     <string name="ambient_diamond">Ambient pressure diamond peak (cm-1)</string>

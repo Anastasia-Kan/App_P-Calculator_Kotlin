@@ -37,7 +37,6 @@ class DiamondFragment : Fragment() {
         }
 
         binding.diaInfo.setOnClickListener {
-            //var diamondInfoText = infoFromDiamond
             this.findNavController().navigate(
                 DiamondFragmentDirections.actionDiamondFragmentToInfoFragment(
                     FROM_DIAMOND

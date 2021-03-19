@@ -92,6 +92,7 @@ class RubyViewModel : ViewModel() {
 
         when (calibration.value) {
             R.id.shen_segment -> {
+                CalculationMethods.validateNumbersShen(lambda0, lambda)
                 pressure = CalculationMethods.Shen(lambda0, lambda)
                 Log.i(TAG, "shen model, P = $pressure")}
             R.id.mao_hydro_segment -> {

@@ -26,10 +26,10 @@ class InfoFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_info, container, false)
 
-        binding.infoToolbar.setNavigationIcon(R.drawable.back_arrow)
+        /*binding.infoToolbar.setNavigationIcon(R.drawable.back_arrow)
         binding.infoToolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
-        }
+        }*/
 
         val args: InfoFragmentArgs by navArgs()
 

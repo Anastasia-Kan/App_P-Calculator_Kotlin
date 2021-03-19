@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/rubyFragment">
+    app:startDestination="@id/diamondFragment">
 
     <fragment
         android:id="@+id/diamondFragment"
         android:name="com.example.pressurecalcapp.diamond.DiamondFragment"
-        android:label="DiamondFragment" >
+        android:label="Diamond (anvil) Raman"
+        android:gravity="center">
         <action
             android:id="@+id/action_diamondFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
@@ -19,7 +20,8 @@
     <fragment
         android:id="@+id/rubyFragment"
         android:name="com.example.pressurecalcapp.ruby.RubyFragment"
-        android:label="RubyFragment" >
+        android:label="Ruby Fluorescence"
+        android:gravity="center">
         <action
             android:id="@+id/action_rubyFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
@@ -30,7 +32,8 @@
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.pressurecalcapp.info.InfoFragment"
-        android:label="fragment_info"
+        android:label="Info Notes"
+        android:gravity="center"
         tools:layout="@layout/fragment_info">
         <argument
             android:name="text_source"

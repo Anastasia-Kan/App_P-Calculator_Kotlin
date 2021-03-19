@@ -70,7 +70,7 @@
             android:paddingLeft="@dimen/small_padding"
             android:paddingTop="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
-            android:text="@{diamondViewModel.detailsString}"
+            methodDetails="@{diamondViewModel.method}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupDiaTab" />

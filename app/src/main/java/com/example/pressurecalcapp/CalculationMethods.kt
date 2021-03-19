@@ -21,6 +21,11 @@ class CalculationMethods {
             return pressure
         }
 
+        fun validateNumbersShen(lambda0 : Double, lambda: Double) : Boolean
+        {
+            return true
+        }
+
         fun Mao(B: Double, lambda0: Double, lambda : Double) : Double
         {
             val A = 1904.0

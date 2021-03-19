@@ -12,12 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="?attr/colorPrimary"
+        android:gravity="center"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/toolbarStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Pressure Calculator" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainFragmentHost"
@@ -34,3 +36,12 @@
     </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+
+    </androidx.appcompat.widget.Toolbar>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:text="Pressure Calculator"
+android:gravity="center" />-->

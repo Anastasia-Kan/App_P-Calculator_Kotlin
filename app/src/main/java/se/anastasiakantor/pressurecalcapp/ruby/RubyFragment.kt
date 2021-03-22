@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import se.anastasiakantor.pressurecalcapp.helpers.FROM_RUBY
 import se.anastasiakantor.pressurecalcapp.R
 import se.anastasiakantor.pressurecalcapp.databinding.FragmentRubyBinding
-import se.anastasiakantor.pressurecalcapp.MainFragmentDirections
+import se.anastasiakantor.pressurecalcapp.main.MainFragmentDirections
 
 class RubyFragment : Fragment() {
 
@@ -27,6 +27,8 @@ class RubyFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(RubyViewModel::class.java)
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
+
+        viewModel.calibration.observe(viewLifecycleOwner, {})
 
         binding.rubyInfo.setOnClickListener {
             this.findNavController().navigate(

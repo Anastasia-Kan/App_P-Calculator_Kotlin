@@ -20,7 +20,7 @@
             android:id="@+id/radioGroupDiaTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checkedButton="@={diamondViewModel.method}"
+            app:checkedButtonVariation="@={diamondViewModel.method}"
             android:layout_marginStart="@dimen/very_small_margin8"
             android:layout_marginTop="@dimen/very_small_margin8"
             android:layout_marginEnd="@dimen/very_small_margin8"

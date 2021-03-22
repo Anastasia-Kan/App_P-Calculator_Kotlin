@@ -3,6 +3,10 @@ package se.anastasiakantor.pressurecalcapp.helpers
 import java.lang.Math.pow
 import kotlin.math.round
 
+typealias Calibrations = CalculationMethods.rubyCalibrations
+typealias Variations = CalculationMethods.diamondVariations
+
+
 class CalculationMethods {
 
     companion object{
@@ -63,15 +67,17 @@ class CalculationMethods {
             return pressure
         }
     }
+    enum class rubyCalibrations {
+        SHEN,
+        MAO_Hydro,
+        MAO_Non_Hydro
+    }
+
+    enum class diamondVariations {
+        DIAMOND_RAMAN,
+        DIAMOND_ANVIL_RAMAN
+    }
+
+
 }
 
-enum class rubyCalibrations {
-    SHEN,
-    MAO_Hydro,
-    MAO_Non_Hydro
-}
-
-enum class diamondVeriation {
-    DIAMOND_RAMAN,
-    DIAMOND_ANVIL_RAMAN
-}

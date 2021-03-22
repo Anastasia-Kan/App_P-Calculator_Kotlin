@@ -10,8 +10,8 @@ import androidx.viewpager2.widget.ViewPager2
 import se.anastasiakantor.pressurecalcapp.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import se.anastasiakantor.pressurecalcapp.helpers.PREFERENCE_FILE
-import se.anastasiakantor.pressurecalcapp.helpers.PREFERENCE_KEY
+import se.anastasiakantor.pressurecalcapp.helpers.PREFERENCE_FILE_NAME
+import se.anastasiakantor.pressurecalcapp.helpers.START_WITH_TAB_KEY
 
 
 class MainFragment : Fragment() {
@@ -44,10 +44,10 @@ class MainFragment : Fragment() {
         val pageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 val sharedPref =
-                    requireContext().getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE)
+                    requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
                         ?: return
                 with(sharedPref.edit()) {
-                    putInt(PREFERENCE_KEY, position)
+                    putInt(START_WITH_TAB_KEY, position)
                     apply()
                 }
             }
@@ -59,7 +59,7 @@ class MainFragment : Fragment() {
 
     private fun readPositionFromPreferences(): Int {
         val sharedPref =
-            requireContext().getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE) ?: return 0
-        return sharedPref.getInt(PREFERENCE_KEY, 0)
+            requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE) ?: return 0
+        return sharedPref.getInt(START_WITH_TAB_KEY, 0)
     }
 }

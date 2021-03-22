@@ -4,14 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import se.anastasiakantor.pressurecalcapp.helpers.CalculationMethods
 import se.anastasiakantor.pressurecalcapp.R
+import se.anastasiakantor.pressurecalcapp.helpers.Calibrations
 import java.lang.Math.pow
 
 class RubyViewModel : ViewModel() {
-
-    var calibration = MutableLiveData<Int>()
+    var calibration = MutableLiveData<Calibrations>(Calibrations.SHEN)
     var referenceTempScale = MutableLiveData<Int>()
     var measuredTempScale = MutableLiveData<Int>()
-
     var refRubyString = MutableLiveData<String>()
     var refTempString = MutableLiveData<String>()
     var gotRubyString = MutableLiveData<String>()
@@ -21,7 +20,6 @@ class RubyViewModel : ViewModel() {
     var pressure = 0.0
 
     init {
-        calibration.value = R.id.shen_segment
         referenceTempScale.value = R.id.ref_kelvin_segment
         measuredTempScale.value = R.id.measured_kelvin_segment
     }
@@ -86,21 +84,19 @@ class RubyViewModel : ViewModel() {
 
 
         when (calibration.value) {
-            R.id.shen_segment -> {
+            Calibrations.SHEN -> {
                 //TODO: Save and store calibration.value
 
                 CalculationMethods.validateNumbersShen(lambda0, lambda)
                 pressure = CalculationMethods.Shen(lambda0, lambda)
             }
-            R.id.mao_hydro_segment -> {
+            Calibrations.MAO_Hydro -> {
                 pressure = CalculationMethods.Mao(7.665, lambda0, lambda)
             }
-            R.id.mao_nHydro_segment -> {
+            Calibrations.MAO_Non_Hydro -> {
                 pressure = CalculationMethods.Mao(5.0, lambda0, lambda)
             }
         }
-
-
 
         refRubyString.value = refRuby.toString()
         refTempString.value = refTemp.toString()
@@ -108,6 +104,6 @@ class RubyViewModel : ViewModel() {
         gotTempString.value = gotTemp.toString()
 
         resultPressureString.value = pressure.toString()
-
     }
 }
+

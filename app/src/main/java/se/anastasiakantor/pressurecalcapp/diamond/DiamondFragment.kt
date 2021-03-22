@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,6 +29,8 @@ class DiamondFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_diamond, container, false)
         val startFromMethod = readPreferencesFromFile()
+        Log.i(TAG, "onCreateView: read from pref = $startFromMethod")
+        Toast.makeText(requireActivity(), "read from pref = $startFromMethod", Toast.LENGTH_SHORT).show()
         viewModel = ViewModelProvider(this, DiamondViewModel.Factory(startFromMethod))
             .get(DiamondViewModel::class.java)
         binding.diamondViewModel = viewModel
@@ -36,18 +39,17 @@ class DiamondFragment : Fragment() {
         viewModel.method.observe(viewLifecycleOwner, {
             it?.let {
                 val position = it.ordinal
-                Log.i(TAG, "onCreateView: position = $position")
-//                val sharedPref =
-//                    requireContext().getSharedPreferences(
-//                        PREFERENCE_FILE_NAME,
-//                        Context.MODE_PRIVATE
-//                    )
-//                sharedPref?.let {
-//                    with(sharedPref.edit()) {
-//                        putInt(DIAMOND_METHOD_KEY, position)
-//                        apply()
-//                    }
-//                }
+                val sharedPref =
+                    requireContext().getSharedPreferences(
+                        PREFERENCE_FILE_NAME,
+                        Context.MODE_PRIVATE
+                    )
+                sharedPref?.let {
+                    with(sharedPref.edit()) {
+                        putInt(DIAMOND_METHOD_KEY, position)
+                        apply()
+                    }
+                }
             }
         })
 
@@ -60,7 +62,7 @@ class DiamondFragment : Fragment() {
         return binding.root
     }
 
-    fun readPreferencesFromFile(): Int {
+    private fun readPreferencesFromFile(): Int {
         val sharedPref =
             requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE) ?: return 0
         return sharedPref.getInt(DIAMOND_METHOD_KEY, 0)

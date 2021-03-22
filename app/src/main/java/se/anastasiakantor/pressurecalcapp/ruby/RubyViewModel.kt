@@ -1,11 +1,9 @@
-package com.example.pressurecalcapp.ruby
+package se.anastasiakantor.pressurecalcapp.ruby
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.pressurecalcapp.CalculationMethods
-import com.example.pressurecalcapp.R
-import com.example.pressurecalcapp.TAG
+import se.anastasiakantor.pressurecalcapp.helpers.CalculationMethods
+import se.anastasiakantor.pressurecalcapp.R
 import java.lang.Math.pow
 
 class RubyViewModel : ViewModel() {
@@ -26,7 +24,6 @@ class RubyViewModel : ViewModel() {
         calibration.value = R.id.shen_segment
         referenceTempScale.value = R.id.ref_kelvin_segment
         measuredTempScale.value = R.id.measured_kelvin_segment
-        Log.i(TAG, "RubyViewModel created")
     }
 
     fun calculatePressureRubyClicked() {
@@ -63,8 +60,6 @@ class RubyViewModel : ViewModel() {
         }
 
         val deltaRT = RT - 296.0
-        Log.i(TAG, "RT = $RT")
-        Log.i(TAG, "T = $T")
         val deltaRTsqr = pow(deltaRT, 2.0)
         val deltaRTcub = pow(deltaRT, 3.0)
         val deltaT = T - 296.0
@@ -92,16 +87,20 @@ class RubyViewModel : ViewModel() {
 
         when (calibration.value) {
             R.id.shen_segment -> {
+                //TODO: Save and store calibration.value
+
                 CalculationMethods.validateNumbersShen(lambda0, lambda)
                 pressure = CalculationMethods.Shen(lambda0, lambda)
-                Log.i(TAG, "shen model, P = $pressure")}
+            }
             R.id.mao_hydro_segment -> {
                 pressure = CalculationMethods.Mao(7.665, lambda0, lambda)
-                Log.i(TAG, "mao_hydro model, P = $pressure")}
+            }
             R.id.mao_nHydro_segment -> {
                 pressure = CalculationMethods.Mao(5.0, lambda0, lambda)
-                Log.i(TAG, "mao_nHydro model, P = $pressure")}
+            }
         }
+
+
 
         refRubyString.value = refRuby.toString()
         refTempString.value = refTemp.toString()

@@ -1,7 +1,6 @@
-package com.example.pressurecalcapp.ruby
+package se.anastasiakantor.pressurecalcapp.ruby
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +8,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.pressurecalcapp.FROM_RUBY
-import com.example.pressurecalcapp.R
-import com.example.pressurecalcapp.TAG
-import com.example.pressurecalcapp.databinding.FragmentRubyBinding
+import se.anastasiakantor.pressurecalcapp.helpers.FROM_RUBY
+import se.anastasiakantor.pressurecalcapp.R
+import se.anastasiakantor.pressurecalcapp.databinding.FragmentRubyBinding
+import se.anastasiakantor.pressurecalcapp.MainFragmentDirections
 
 class RubyFragment : Fragment() {
 
@@ -29,19 +28,9 @@ class RubyFragment : Fragment() {
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
 
-        Log.i(TAG, "Ruby Fragment created")
-
-        binding.diamondTabBTN.setOnClickListener {
-            Log.i(TAG, "diamondTab clicked")
-            this.findNavController().navigate(R.id.action_rubyFragment_to_diamondFragment)
-            //TODO: save local var Tab-state
-        }
-
         binding.rubyInfo.setOnClickListener {
             this.findNavController().navigate(
-                RubyFragmentDirections.actionRubyFragmentToInfoFragment(
-                    FROM_RUBY
-                )
+                MainFragmentDirections.actionMainFragmentToInfoFragment(FROM_RUBY)
             )
         }
         return binding.root

@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".diamond.DiamondFragment">
+    tools:context="se.anastasiakantor.pressurecalcapp.diamond.DiamondFragment">
 
     <data>
         <variable
             name="diamondViewModel"
-            type="com.example.pressurecalcapp.diamond.DiamondViewModel" />
+            type="se.anastasiakantor.pressurecalcapp.diamond.DiamondViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,30 +189,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/diaCalcP" />
 
-        <Button
-            android:id="@+id/rubyTabBTN"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/ruby"
-            android:backgroundTint="@color/tab_button"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/diamondTabBTN"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/diamond"
-            android:backgroundTint="@color/gray_background"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+
+<!--
+<Button
+android:id="@+id/rubyTabBTN"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="@string/ruby"
+android:backgroundTint="@color/tab_button"
+android:textColor="@color/black"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
+app:layout_constraintHorizontal_bias="0.5"
+app:layout_constraintStart_toStartOf="parent" />
+
+<Button
+android:id="@+id/diamondTabBTN"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="@string/diamond"
+android:backgroundTint="@color/gray_background"
+android:textColor="@color/black"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.5"
+app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />-->

@@ -1,4 +1,4 @@
-package com.example.pressurecalcapp
+package se.anastasiakantor.pressurecalcapp
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter

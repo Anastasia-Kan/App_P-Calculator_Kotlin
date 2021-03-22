@@ -1,8 +1,7 @@
-package com.example.pressurecalcapp
+package se.anastasiakantor.pressurecalcapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i(TAG, "Main activity")
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainFragmentHost) as NavHostFragment
@@ -24,6 +22,5 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfig = AppBarConfiguration(navController.graph)
         NavigationUI.setupWithNavController(findViewById(R.id.toolbar), navController, appBarConfig)
-
     }
 }

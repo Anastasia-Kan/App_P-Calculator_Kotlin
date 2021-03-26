@@ -9,6 +9,3 @@ const val START_WITH_TAB_KEY = "start_with_tab_key"
 const val DIAMOND_METHOD_KEY = "diamond_method_key"
 const val RUBY_CALIBRATION_KEY = "ruby_calibration_key"
 
-const val DIAMOND_RAMAN_VALUE = 1
-const val DIAMOND_ANVIL_RAMAN_VALUE = 2
-

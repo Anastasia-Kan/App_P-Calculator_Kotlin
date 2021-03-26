@@ -28,5 +28,6 @@
     <string name="measured_ruby_nm">Measured ruby (nm)</string>
     <string name="ruby">Ruby</string>
     <string name="diamond">Diamond</string>
+    <string name="delete">X</string>
 
 </resources>

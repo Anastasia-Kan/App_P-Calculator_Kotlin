@@ -2,12 +2,14 @@ package se.anastasiakantor.pressurecalcapp.ruby
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import se.anastasiakantor.pressurecalcapp.helpers.CalculationMethods
 import se.anastasiakantor.pressurecalcapp.R
+import se.anastasiakantor.pressurecalcapp.diamond.DiamondViewModel
 import se.anastasiakantor.pressurecalcapp.helpers.Calibrations
 import java.lang.Math.pow
 
-class RubyViewModel : ViewModel() {
+class RubyViewModel(private val startFrom: Int) : ViewModel() {
     var calibration = MutableLiveData<Calibrations>(Calibrations.SHEN)
     var referenceTempScale = MutableLiveData<Int>()
     var measuredTempScale = MutableLiveData<Int>()
@@ -20,6 +22,7 @@ class RubyViewModel : ViewModel() {
     var pressure = 0.0
 
     init {
+        calibration.value = Calibrations.values()[startFrom]
         referenceTempScale.value = R.id.ref_kelvin_segment
         measuredTempScale.value = R.id.measured_kelvin_segment
     }
@@ -85,8 +88,6 @@ class RubyViewModel : ViewModel() {
 
         when (calibration.value) {
             Calibrations.SHEN -> {
-                //TODO: Save and store calibration.value
-
                 CalculationMethods.validateNumbersShen(lambda0, lambda)
                 pressure = CalculationMethods.Shen(lambda0, lambda)
             }
@@ -104,6 +105,16 @@ class RubyViewModel : ViewModel() {
         gotTempString.value = gotTemp.toString()
 
         resultPressureString.value = pressure.toString()
+    }
+
+    class Factory(private val startFrom: Int) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(RubyViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return RubyViewModel(startFrom) as T
+            }
+            throw IllegalArgumentException("Unable to construct viewmodel")
+        }
     }
 }
 

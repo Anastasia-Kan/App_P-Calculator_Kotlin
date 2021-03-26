@@ -2,14 +2,11 @@ package se.anastasiakantor.pressurecalcapp.diamond
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import se.anastasiakantor.pressurecalcapp.R
@@ -29,8 +26,6 @@ class DiamondFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_diamond, container, false)
         val startFromMethod = readPreferencesFromFile()
-        Log.i(TAG, "onCreateView: read from pref = $startFromMethod")
-        Toast.makeText(requireActivity(), "read from pref = $startFromMethod", Toast.LENGTH_SHORT).show()
         viewModel = ViewModelProvider(this, DiamondViewModel.Factory(startFromMethod))
             .get(DiamondViewModel::class.java)
         binding.diamondViewModel = viewModel

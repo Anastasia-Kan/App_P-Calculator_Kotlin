@@ -57,10 +57,12 @@ class DiamondFragment : Fragment() {
         binding.refPeak.onRightDrawableClicked {
             it.text.clear()
         }
+        binding.refPeak.makeClearableEditText(null, null)
 
         binding.gotPeak.onRightDrawableClicked {
             it.text.clear()
         }
+        binding.gotPeak.makeClearableEditText(null, null)
 
         return binding.root
     }

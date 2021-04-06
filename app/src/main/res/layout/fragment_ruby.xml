@@ -87,18 +87,18 @@
         <EditText
             android:id="@+id/refRuby"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="16dp"
             android:background="@drawable/white_rounded_textview"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             android:ems="10"
             android:gravity="center"
             android:hint="694.22"
             android:inputType="numberDecimal"
             android:singleLine="true"
             android:text="@={rubyViewModel.refRubyString}"
-            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
 
@@ -167,33 +167,33 @@
 
         <EditText
             android:id="@+id/refTemp"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             android:ems="10"
             android:gravity="center"
             android:hint="298/25"
             android:inputType="numberDecimal"
             android:text="@={rubyViewModel.refTempString}"
-            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRuby" />
 
         <EditText
             android:id="@+id/gotTemp"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             android:ems="10"
             android:gravity="center"
             android:hint="298/25"
             android:inputType="numberDecimal"
             android:text="@={rubyViewModel.gotTempString}"
-            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotRuby" />
 
@@ -225,17 +225,17 @@
 
         <EditText
             android:id="@+id/gotRuby"
-            android:layout_width="80sp"
+            android:layout_width="100sp"
             android:layout_height="40sp"
             android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             android:ems="10"
             android:gravity="center"
             android:hint="694.22"
             android:inputType="numberDecimal"
             android:text="@={rubyViewModel.gotRubyString}"
-            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refTemp" />
 

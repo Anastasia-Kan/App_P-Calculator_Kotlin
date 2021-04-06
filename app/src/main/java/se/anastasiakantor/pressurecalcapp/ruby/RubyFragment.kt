@@ -62,30 +62,24 @@ class RubyFragment : Fragment() {
         binding.refRuby.onRightDrawableClicked {
             it.text.clear()
         }
+        binding.refRuby.makeClearableEditText(null, null)
+
         binding.gotRuby.onRightDrawableClicked {
             it.text.clear()
         }
+        binding.gotRuby.makeClearableEditText(null, null)
+
         binding.refTemp.onRightDrawableClicked {
             it.text.clear()
         }
+        binding.refTemp.makeClearableEditText(null, null)
+
         binding.gotTemp.onRightDrawableClicked {
             it.text.clear()
         }
-
-
-        closeKeyboard()
+        binding.gotTemp.makeClearableEditText(null, null)
 
         return binding.root
-    }
-
-    fun closeKeyboard() {
-        val activity = activity as Activity
-
-        val view = activity.currentFocus
-        if (view != null) {
-            val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(view!!.getWindowToken(), 0)
-        }
     }
 
     private fun readPreferencesFromFile(): Int {

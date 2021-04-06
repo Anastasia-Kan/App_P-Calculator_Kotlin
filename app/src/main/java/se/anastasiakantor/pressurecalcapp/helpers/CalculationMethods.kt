@@ -1,5 +1,6 @@
 package se.anastasiakantor.pressurecalcapp.helpers
 
+import android.util.Log
 import java.lang.Math.pow
 import kotlin.math.round
 
@@ -65,6 +66,11 @@ class CalculationMethods {
             val p = part1 * part3
             val pressure = round(p*100)/100
             return pressure
+        }
+
+        fun areNumbersCorrectDiamond (refPeak: Double, gotPeak: Double) : Boolean
+        {
+            return refPeak in 1200.0..2500.0 && gotPeak in 1200.0..2500.0
         }
     }
     enum class rubyCalibrations {

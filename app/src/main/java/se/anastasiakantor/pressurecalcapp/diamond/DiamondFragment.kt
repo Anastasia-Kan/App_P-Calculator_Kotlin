@@ -54,6 +54,14 @@ class DiamondFragment : Fragment() {
             )
         }
 
+        binding.refPeak.onRightDrawableClicked {
+            it.text.clear()
+        }
+
+        binding.gotPeak.onRightDrawableClicked {
+            it.text.clear()
+        }
+
         return binding.root
     }
 

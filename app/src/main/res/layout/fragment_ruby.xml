@@ -98,6 +98,7 @@
             android:inputType="numberDecimal"
             android:singleLine="true"
             android:text="@={rubyViewModel.refRubyString}"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
 
@@ -173,9 +174,10 @@
             android:background="@drawable/white_rounded_textview"
             android:ems="10"
             android:gravity="center"
-            android:hint="298"
+            android:hint="298/25"
             android:inputType="numberDecimal"
             android:text="@={rubyViewModel.refTempString}"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refRuby" />
 
@@ -188,9 +190,10 @@
             android:background="@drawable/white_rounded_textview"
             android:ems="10"
             android:gravity="center"
-            android:hint="298"
+            android:hint="298/25"
             android:inputType="numberDecimal"
             android:text="@={rubyViewModel.gotTempString}"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotRuby" />
 
@@ -232,6 +235,7 @@
             android:hint="694.22"
             android:inputType="numberDecimal"
             android:text="@={rubyViewModel.gotRubyString}"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refTemp" />
 
@@ -306,14 +310,14 @@
             android:id="@+id/rubyInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/white"
             android:text="@string/info"
             android:textColor="@color/button_text"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rubyCalcP" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

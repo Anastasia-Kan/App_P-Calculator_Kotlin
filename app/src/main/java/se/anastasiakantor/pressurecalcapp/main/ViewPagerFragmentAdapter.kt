@@ -21,5 +21,4 @@ class ViewPagerFragmentAdapter(
     override fun getItemCount(): Int {
         return titles.size
     }
-
 }

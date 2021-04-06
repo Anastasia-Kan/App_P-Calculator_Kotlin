@@ -1,5 +1,6 @@
 package se.anastasiakantor.pressurecalcapp.ruby
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -56,7 +58,34 @@ class RubyFragment : Fragment() {
                 MainFragmentDirections.actionMainFragmentToInfoFragment(FROM_RUBY)
             )
         }
+
+        binding.refRuby.onRightDrawableClicked {
+            it.text.clear()
+        }
+        binding.gotRuby.onRightDrawableClicked {
+            it.text.clear()
+        }
+        binding.refTemp.onRightDrawableClicked {
+            it.text.clear()
+        }
+        binding.gotTemp.onRightDrawableClicked {
+            it.text.clear()
+        }
+
+
+        closeKeyboard()
+
         return binding.root
+    }
+
+    fun closeKeyboard() {
+        val activity = activity as Activity
+
+        val view = activity.currentFocus
+        if (view != null) {
+            val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm!!.hideSoftInputFromWindow(view!!.getWindowToken(), 0)
+        }
     }
 
     private fun readPreferencesFromFile(): Int {

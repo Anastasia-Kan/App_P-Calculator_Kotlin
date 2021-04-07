@@ -57,73 +57,32 @@ class RubyViewModel(private val startFrom: Int) : ViewModel() {
             T += 273.0
         }
 
-        val deltaRT = RT - 296.0
-        val deltaRTsqr = pow(deltaRT, 2.0)
-        val deltaRTcub = pow(deltaRT, 3.0)
-        val deltaT = T - 296.0
-        val deltaTsqr = pow(deltaT, 2.0)
-        val deltaTcub = pow(deltaT, 3.0)
-        var corrLambda0 = -0.887
-        var corrLambda = -0.887
+        val lambda0 = refRuby - CalculationMethods.tempCorrectionLambda0(RT)
+        val lambda = gotRuby - CalculationMethods.tempCorrectionLambda(T)
 
-        if (RT in 50.0..296.0)
-            corrLambda0 = (0.00664 * deltaRT) + (6.76e-6 * deltaRTsqr) - (2.33e-8 * deltaRTcub)
-
-        if (RT >= 296.0)
-            corrLambda0 = (0.00746 * deltaRT) - (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
-
-        val lambda0 = refRuby - corrLambda0
-
-        if (T in 50.0..296.0)
-            corrLambda = (0.00664 * deltaT) + (6.76e-6 * deltaTsqr) - (2.33e-8 * deltaTcub)
-
-        if (T >= 296.0)
-            corrLambda = (0.00746 * deltaT) - (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
-
-        val lambda = gotRuby - corrLambda
-
-        if (lambda0 in 690.0..800.0) {
-            Log.i(TAG, "input refRuby OK")
-        } else {
-            Log.i(TAG, "check value input refRuby")
-            resultPressureString.value = "Check your values"
-            return
-        }
-        if (lambda in 690.0..1500.0) {
-            Log.i(TAG, "input gotRuby OK")
-        } else {
-            Log.i(TAG, "check value input gotRuby")
-            resultPressureString.value = "Check your values"
-            return
-        }
-        if (RT in 10.0..310.0) {
-            Log.i(TAG, "input refTemp OK")
-        } else {
-            Log.i(TAG, "check value input refTemp")
-            resultPressureString.value = "Check your values"
-            return
-        }
-
-
-        when (calibration.value) {
-            Calibrations.SHEN -> {
-                CalculationMethods.validateNumbersShen(lambda0, lambda)
-                pressure = CalculationMethods.Shen(lambda0, lambda)
+        if (CalculationMethods.areNumbersCorrectRuby(lambda0, lambda, RT)) {
+            when (calibration.value) {
+                Calibrations.SHEN -> {
+                    CalculationMethods.validateNumbersShen(lambda0, lambda)
+                    pressure = CalculationMethods.Shen(lambda0, lambda)
+                }
+                Calibrations.MAO_Hydro -> {
+                    pressure = CalculationMethods.Mao(7.665, lambda0, lambda)
+                }
+                Calibrations.MAO_Non_Hydro -> {
+                    pressure = CalculationMethods.Mao(5.0, lambda0, lambda)
+                }
             }
-            Calibrations.MAO_Hydro -> {
-                pressure = CalculationMethods.Mao(7.665, lambda0, lambda)
-            }
-            Calibrations.MAO_Non_Hydro -> {
-                pressure = CalculationMethods.Mao(5.0, lambda0, lambda)
-            }
+
+            refRubyString.value = refRuby.toString()
+            refTempString.value = refTemp.toString()
+            gotRubyString.value = gotRuby.toString()
+            gotTempString.value = gotTemp.toString()
+
+            resultPressureString.value = pressure.toString()
+        } else {
+            resultPressureString.value = "Check your values"
         }
-
-        refRubyString.value = refRuby.toString()
-        refTempString.value = refTemp.toString()
-        gotRubyString.value = gotRuby.toString()
-        gotTempString.value = gotTemp.toString()
-
-        resultPressureString.value = pressure.toString()
     }
 
     class Factory(private val startFrom: Int) : ViewModelProvider.Factory {

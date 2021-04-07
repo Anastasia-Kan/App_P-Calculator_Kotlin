@@ -72,6 +72,49 @@ class CalculationMethods {
         {
             return refPeak in 1200.0..2500.0 && gotPeak in 1200.0..2500.0
         }
+
+        fun areNumbersCorrectRuby (lambda0: Double, lambda: Double, RT: Double) : Boolean
+        {
+            if (lambda0 in 690.0..800.0 && lambda in 690.0..1500.0 && RT in 10.0..310.0) {
+                Log.i(TAG, "input OK")
+                return true
+            } else {
+                Log.i(TAG, "check value input refRuby")
+                return false
+            }
+        }
+
+        fun tempCorrectionLambda0 (RT: Double) : Double
+        {
+            val deltaRT = RT - 296.0
+            val deltaRTsqr = pow(deltaRT, 2.0)
+            val deltaRTcub = pow(deltaRT, 3.0)
+            var corrLambda0 = -0.887
+            if (RT in 50.0..296.0)
+                corrLambda0 = (0.00664 * deltaRT) + (6.76e-6 * deltaRTsqr) - (2.33e-8 * deltaRTcub)
+
+            if (RT >= 296.0)
+                corrLambda0 = (0.00746 * deltaRT) - (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
+
+            return  corrLambda0
+        }
+
+        fun tempCorrectionLambda (T: Double) : Double
+        {
+            val deltaT = T - 296.0
+            val deltaTsqr = pow(deltaT, 2.0)
+            val deltaTcub = pow(deltaT, 3.0)
+            var corrLambda = -0.887
+
+            if (T in 50.0..296.0)
+                corrLambda = (0.00664 * deltaT) + (6.76e-6 * deltaTsqr) - (2.33e-8 * deltaTcub)
+
+            if (T >= 296.0)
+                corrLambda = (0.00746 * deltaT) - (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
+
+
+            return  corrLambda
+        }
     }
     enum class rubyCalibrations {
         SHEN,

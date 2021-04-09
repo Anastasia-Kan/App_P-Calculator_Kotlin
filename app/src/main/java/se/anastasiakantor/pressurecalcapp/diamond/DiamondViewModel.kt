@@ -3,7 +3,6 @@ package se.anastasiakantor.pressurecalcapp.diamond
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import se.anastasiakantor.pressurecalcapp.*
 import se.anastasiakantor.pressurecalcapp.helpers.CalculationMethods
 import se.anastasiakantor.pressurecalcapp.helpers.Variations
 

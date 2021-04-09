@@ -1,6 +1,5 @@
 package se.anastasiakantor.pressurecalcapp.ruby
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -9,12 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import se.anastasiakantor.pressurecalcapp.R
 import se.anastasiakantor.pressurecalcapp.databinding.FragmentRubyBinding
-import se.anastasiakantor.pressurecalcapp.diamond.DiamondViewModel
 import se.anastasiakantor.pressurecalcapp.helpers.*
 import se.anastasiakantor.pressurecalcapp.main.MainFragmentDirections
 
@@ -59,6 +58,8 @@ class RubyFragment : Fragment() {
             )
         }
 
+
+
         binding.refRuby.onRightDrawableClicked {
             it.text.clear()
         }
@@ -81,6 +82,8 @@ class RubyFragment : Fragment() {
 
         return binding.root
     }
+
+
 
     private fun readPreferencesFromFile(): Int {
         val sharedPref =

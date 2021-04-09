@@ -5,6 +5,7 @@
     tools:context="se.anastasiakantor.pressurecalcapp.diamond.DiamondFragment">
 
     <data>
+
         <variable
             name="diamondViewModel"
             type="se.anastasiakantor.pressurecalcapp.diamond.DiamondViewModel" />
@@ -20,12 +21,12 @@
             android:id="@+id/radioGroupDiaTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:checkedButtonVariation="@={diamondViewModel.method}"
             android:layout_marginStart="@dimen/very_small_margin8"
             android:layout_marginTop="@dimen/very_small_margin8"
             android:layout_marginEnd="@dimen/very_small_margin8"
             android:orientation="horizontal"
             android:padding="5dp"
+            app:checkedButtonVariation="@={diamondViewModel.method}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -58,6 +59,7 @@
 
         <TextView
             android:id="@+id/detailsTV"
+            methodDetails="@{diamondViewModel.method}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/very_small_margin8"
@@ -70,7 +72,6 @@
             android:paddingLeft="@dimen/small_padding"
             android:paddingTop="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
-            methodDetails="@{diamondViewModel.method}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupDiaTab" />
@@ -98,11 +99,11 @@
             android:autofillHints="1333.0"
             android:background="@drawable/white_rounded_textview"
             android:backgroundTint="#FFFFFF"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             android:ems="10"
             android:gravity="center"
             android:inputType="numberDecimal"
             android:text="@={diamondViewModel.refPeakString}"
-            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailsTV" />
 
@@ -129,11 +130,11 @@
             android:autofillHints="1333.0"
             android:background="@drawable/white_rounded_textview"
             android:backgroundTint="#FFFFFF"
+            android:drawableRight="@drawable/ic_baseline_cancel_24"
             android:ems="10"
             android:gravity="center"
             android:inputType="numberDecimal"
             android:text="@={diamondViewModel.gotPeakString}"
-            android:drawableRight="@drawable/ic_baseline_cancel_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/refPeak" />
 
@@ -195,27 +196,27 @@
 </layout>
 
 
-<!--
-<Button
-android:id="@+id/rubyTabBTN"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:text="@string/ruby"
-android:backgroundTint="@color/tab_button"
-android:textColor="@color/black"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
-app:layout_constraintHorizontal_bias="0.5"
-app:layout_constraintStart_toStartOf="parent" />
+    <!--
+    <Button
+    android:id="@+id/rubyTabBTN"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/ruby"
+    android:backgroundTint="@color/tab_button"
+    android:textColor="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent" />
 
-<Button
-android:id="@+id/diamondTabBTN"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:text="@string/diamond"
-android:backgroundTint="@color/gray_background"
-android:textColor="@color/black"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.5"
-app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />-->
+    <Button
+    android:id="@+id/diamondTabBTN"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/diamond"
+    android:backgroundTint="@color/gray_background"
+    android:textColor="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />-->

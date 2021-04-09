@@ -1,15 +1,11 @@
 package se.anastasiakantor.pressurecalcapp.ruby
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import se.anastasiakantor.pressurecalcapp.helpers.CalculationMethods
 import se.anastasiakantor.pressurecalcapp.R
-import se.anastasiakantor.pressurecalcapp.diamond.DiamondViewModel
 import se.anastasiakantor.pressurecalcapp.helpers.Calibrations
-import se.anastasiakantor.pressurecalcapp.helpers.TAG
-import java.lang.Math.pow
 
 class RubyViewModel(private val startFrom: Int) : ViewModel() {
     var calibration = MutableLiveData(Calibrations.SHEN)

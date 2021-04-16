@@ -302,7 +302,9 @@
             android:background="@drawable/white_rounded_textview"
             android:gravity="center"
             android:text="@{rubyViewModel.resultPressureString}"
+            android:textColor="#FF0000"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotTemp" />
 

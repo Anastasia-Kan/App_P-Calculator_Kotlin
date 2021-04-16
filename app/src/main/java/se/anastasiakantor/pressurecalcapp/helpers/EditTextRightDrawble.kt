@@ -1,10 +1,12 @@
 package se.anastasiakantor.pressurecalcapp.helpers
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
@@ -61,6 +63,11 @@ fun EditText.makeClearableEditText(
         onClear?.invoke()
         this.requestFocus()
     }
+}
+
+private fun showKeyboard() {
+    val imm = Context.INPUT_METHOD_SERVICE as InputMethodManager
+    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
 }
 
 private const val COMPOUND_DRAWABLE_RIGHT_INDEX = 2

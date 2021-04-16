@@ -77,6 +77,9 @@ class RubyViewModel(private val startFrom: Int) : ViewModel() {
 
             resultPressureString.value = pressure.toString()
         } else {
+            //TODO: Snackbar instead of message inside a TextView
+            /*val snack = Snackbar.make(it,"This is a simple Snackbar", Snackbar.LENGTH_LONG)
+            snack.show()*/
             resultPressureString.value = "Check your values"
         }
     }

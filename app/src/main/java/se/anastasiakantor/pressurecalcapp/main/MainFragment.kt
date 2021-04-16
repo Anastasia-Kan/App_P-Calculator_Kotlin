@@ -17,8 +17,6 @@ import se.anastasiakantor.pressurecalcapp.helpers.START_WITH_TAB_KEY
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
-
-    // tab titles
     private val titles = listOf("Ruby", "Diamond")
 
     override fun onCreateView(

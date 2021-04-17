@@ -5,7 +5,6 @@
     tools:context="se.anastasiakantor.pressurecalcapp.diamond.DiamondFragment">
 
     <data>
-
         <variable
             name="diamondViewModel"
             type="se.anastasiakantor.pressurecalcapp.diamond.DiamondViewModel" />
@@ -20,7 +19,7 @@
         <RadioGroup
             android:id="@+id/radioGroupDiaTab"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="@dimen/very_small_margin8"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/very_small_margin8"
@@ -56,7 +55,6 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
-
         <TextView
             android:id="@+id/detailsTV"
             methodDetails="@{diamondViewModel.method}"
@@ -84,7 +82,7 @@
             android:layout_marginEnd="@dimen/small_margin16"
             android:gravity="center"
             android:text="@string/ambient_diamond"
-            android:textSize="20dp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/refPeak"
             app:layout_constraintEnd_toStartOf="@+id/refPeak"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +91,7 @@
         <EditText
             android:id="@+id/refPeak"
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/small_margin16"
             android:autofillHints="1333.0"
@@ -115,7 +113,7 @@
             android:layout_marginEnd="@dimen/small_margin16"
             android:gravity="center"
             android:text="@string/measured_peak"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/gotPeak"
             app:layout_constraintEnd_toStartOf="@+id/gotPeak"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +122,7 @@
         <EditText
             android:id="@+id/gotPeak"
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/small_margin16"
             android:autofillHints="1333.0"
@@ -141,7 +139,7 @@
         <TextView
             android:id="@+id/diaResP"
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
@@ -172,13 +170,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/very_small_margin8"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/very_small_margin8"
+            android:layout_marginEnd="32dp"
             android:onClick="@{() -> diamondViewModel.calculatePressureDiamondClicked()}"
             android:text="@string/calculate_P"
             android:textColor="@color/button_text"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:backgroundTint="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/diaInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/diaResP" />
 
@@ -187,39 +186,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/very_small_margin8"
-            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/white"
             android:text="@string/info"
             android:textColor="@color/button_text"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/diaCalcP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/diaCalcP" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-
-    <!--
-    <Button
-    android:id="@+id/rubyTabBTN"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="@string/ruby"
-    android:backgroundTint="@color/tab_button"
-    android:textColor="@color/black"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-    android:id="@+id/diamondTabBTN"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="@string/diamond"
-    android:backgroundTint="@color/gray_background"
-    android:textColor="@color/black"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />-->

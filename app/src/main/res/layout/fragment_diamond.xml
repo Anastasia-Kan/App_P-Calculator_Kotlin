@@ -56,7 +56,6 @@
                 android:textColor="@color/black" />
         </RadioGroup>
 
-
         <TextView
             android:id="@+id/detailsTV"
             methodDetails="@{diamondViewModel.method}"
@@ -84,7 +83,7 @@
             android:layout_marginEnd="@dimen/small_margin16"
             android:gravity="center"
             android:text="@string/ambient_diamond"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/refPeak"
             app:layout_constraintEnd_toStartOf="@+id/refPeak"
             app:layout_constraintStart_toStartOf="parent"
@@ -197,29 +196,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-
-    <!--
-    <Button
-    android:id="@+id/rubyTabBTN"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="@string/ruby"
-    android:backgroundTint="@color/tab_button"
-    android:textColor="@color/black"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-    android:id="@+id/diamondTabBTN"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="@string/diamond"
-    android:backgroundTint="@color/gray_background"
-    android:textColor="@color/black"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />-->

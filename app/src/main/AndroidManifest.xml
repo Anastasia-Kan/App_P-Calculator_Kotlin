@@ -11,8 +11,7 @@
         android:theme="@style/Theme.PressureCalcApp">
         <activity
             android:name="se.anastasiakantor.pressurecalcapp.MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,3 +20,6 @@
         </activity>
     </application>
 </manifest>
+
+<!--
+    android:screenOrientation="portrait"-->

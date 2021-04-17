@@ -75,14 +75,14 @@
             android:id="@+id/RefRubyLabel"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/large_margin32"
             android:gravity="center"
             android:text="@string/reference_ruby_nm"
             android:textColor="@color/black"
             android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/refRuby"
             app:layout_constraintEnd_toStartOf="@+id/refRuby"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupRubyTab" />
+            app:layout_constraintTop_toTopOf="@+id/refRuby" />
 
         <EditText
             android:id="@+id/refRuby"
@@ -106,13 +106,13 @@
             android:id="@+id/radioGroupRefTemp"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:checkedButton="@={rubyViewModel.referenceTempScale}"
             android:orientation="horizontal"
             android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/refTemp"
             app:layout_constraintEnd_toStartOf="@+id/refTempLabel"
-            app:layout_constraintTop_toBottomOf="@+id/RefRubyLabel"
+            app:layout_constraintTop_toTopOf="@+id/refTemp"
             tools:ignore="MissingConstraints">
 
             <androidx.appcompat.widget.AppCompatRadioButton
@@ -145,25 +145,25 @@
             android:id="@+id/refTempLabel"
             android:layout_width="wrap_content"
             android:layout_height="40sp"
-            android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/large_margin32"
             android:gravity="center"
             android:text="@string/at_t"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/refTemp"
             app:layout_constraintEnd_toStartOf="@+id/refTemp"
-            app:layout_constraintTop_toBottomOf="@+id/RefRubyLabel" />
+            app:layout_constraintTop_toTopOf="@+id/refTemp" />
 
         <TextView
             android:id="@+id/gotTempLabel"
             android:layout_width="wrap_content"
             android:layout_height="40sp"
-            android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/large_margin32"
             android:gravity="center"
             android:text="@string/at_t"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/gotTemp"
             app:layout_constraintEnd_toStartOf="@+id/gotTemp"
-            app:layout_constraintTop_toBottomOf="@+id/GotRubyLabel" />
+            app:layout_constraintTop_toTopOf="@+id/gotTemp" />
 
         <EditText
             android:id="@+id/refTemp"
@@ -201,27 +201,27 @@
             android:id="@+id/GotRubyLabel"
             android:layout_width="wrap_content"
             android:layout_height="40sp"
-            android:layout_marginTop="@dimen/small_margin16"
             android:layout_marginEnd="@dimen/large_margin32"
             android:gravity="center"
             android:text="@string/measured_ruby_nm"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/gotRuby"
             app:layout_constraintEnd_toStartOf="@+id/gotRuby"
-            app:layout_constraintTop_toBottomOf="@+id/refTempLabel" />
+            app:layout_constraintTop_toTopOf="@+id/gotRuby" />
 
         <TextView
             android:id="@+id/resPressureLable"
             android:layout_width="wrap_content"
             android:layout_height="40sp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:gravity="center"
             android:text="@string/pressure_gpa"
             android:textColor="#F44336"
             android:textSize="22sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/rubyResP"
             app:layout_constraintEnd_toStartOf="@+id/rubyResP"
-            app:layout_constraintTop_toBottomOf="@+id/gotTempLabel" />
+            app:layout_constraintTop_toTopOf="@+id/rubyResP" />
 
         <EditText
             android:id="@+id/gotRuby"
@@ -243,13 +243,13 @@
             android:id="@+id/radioGroupGotTemp"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:checkedButton="@={rubyViewModel.measuredTempScale}"
             android:orientation="horizontal"
             android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/gotTemp"
             app:layout_constraintEnd_toStartOf="@id/gotTempLabel"
-            app:layout_constraintTop_toBottomOf="@id/GotRubyLabel"
+            app:layout_constraintTop_toTopOf="@+id/gotTemp"
             tools:ignore="MissingConstraints">
 
             <androidx.appcompat.widget.AppCompatRadioButton
@@ -291,7 +291,7 @@
             app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resPressureLable" />
+            app:layout_constraintTop_toBottomOf="@+id/rubyResP" />
 
         <TextView
             android:id="@+id/rubyResP"

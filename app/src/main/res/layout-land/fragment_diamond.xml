@@ -20,10 +20,10 @@
         <RadioGroup
             android:id="@+id/radioGroupDiaTab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/very_small_margin8"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/very_small_margin8"
             android:orientation="horizontal"
             android:padding="5dp"
             app:checkedButtonVariation="@={diamondViewModel.method}"
@@ -41,8 +41,7 @@
                 android:checked="false"
                 android:gravity="center"
                 android:text="@string/diamond_raman"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/dia_anvil_raman_segment"
@@ -54,18 +53,18 @@
                 android:checked="true"
                 android:gravity="center"
                 android:text="@string/diamond_anvil_raman"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textColor="@color/black" />
         </RadioGroup>
+
 
         <TextView
             android:id="@+id/detailsTV"
             methodDetails="@{diamondViewModel.method}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="@dimen/small_margin16"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/very_small_margin8"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/very_small_margin8"
             android:background="@drawable/orange_rounded_textview"
             android:backgroundTint="@color/orange_background"
             android:gravity="center"
@@ -73,7 +72,6 @@
             android:paddingLeft="@dimen/small_padding"
             android:paddingTop="@dimen/small_padding"
             android:paddingBottom="@dimen/small_padding"
-            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupDiaTab" />
@@ -82,23 +80,22 @@
             android:id="@+id/ambientPressPeakLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="@dimen/small_margin16"
+            android:layout_marginEnd="@dimen/small_margin16"
             android:gravity="center"
             android:text="@string/ambient_diamond"
-            android:textSize="26dp"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/refPeak"
             app:layout_constraintEnd_toStartOf="@+id/refPeak"
-            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/refPeak" />
 
         <EditText
             android:id="@+id/refPeak"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/small_margin16"
             android:autofillHints="1333.0"
             android:background="@drawable/white_rounded_textview"
             android:backgroundTint="#FFFFFF"
@@ -112,25 +109,24 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/small_margin16"
+            android:layout_marginEnd="@dimen/small_margin16"
             android:gravity="center"
             android:text="@string/measured_peak"
-            android:textSize="26sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/gotPeak"
             app:layout_constraintEnd_toStartOf="@+id/gotPeak"
-            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/gotPeak" />
 
         <EditText
             android:id="@+id/gotPeak"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/small_margin16"
             android:autofillHints="1333.0"
             android:background="@drawable/white_rounded_textview"
             android:backgroundTint="#FFFFFF"
@@ -143,24 +139,11 @@
             app:layout_constraintTop_toBottomOf="@+id/refPeak" />
 
         <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"
-            android:text="@string/pressure_gpa"
-            android:textColor="#F44336"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/diaResP"
-            app:layout_constraintEnd_toStartOf="@+id/diaResP"
-            app:layout_constraintTop_toTopOf="@+id/diaResP" />
-
-        <TextView
             android:id="@+id/diaResP"
-            android:layout_width="220dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/small_margin16"
             android:background="@drawable/white_rounded_textview"
             android:gravity="center"
             android:text="@{diamondViewModel.resultPressureString}"
@@ -170,37 +153,73 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gotPeak" />
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/large_margin32"
+            android:text="@string/pressure_gpa"
+            android:textColor="#F44336"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/diaResP"
+            app:layout_constraintEnd_toStartOf="@+id/diaResP"
+            app:layout_constraintTop_toTopOf="@+id/diaResP" />
+
         <Button
             android:id="@+id/diaCalcP"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/very_small_margin8"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/very_small_margin8"
             android:onClick="@{() -> diamondViewModel.calculatePressureDiamondClicked()}"
             android:text="@string/calculate_P"
             android:textColor="@color/button_text"
-            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/diaResP" />
 
         <Button
             android:id="@+id/diaInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="@dimen/very_small_margin8"
+            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/white"
             android:text="@string/info"
             android:textColor="@color/button_text"
-            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+
+    <!--
+    <Button
+    android:id="@+id/rubyTabBTN"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/ruby"
+    android:backgroundTint="@color/tab_button"
+    android:textColor="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/diamondTabBTN"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+    android:id="@+id/diamondTabBTN"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/diamond"
+    android:backgroundTint="@color/gray_background"
+    android:textColor="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/rubyTabBTN" />-->

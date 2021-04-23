@@ -8,8 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.make
 import se.anastasiakantor.pressurecalcapp.R
 import se.anastasiakantor.pressurecalcapp.databinding.FragmentRubyBinding
 import se.anastasiakantor.pressurecalcapp.helpers.*
@@ -76,6 +79,17 @@ class RubyFragment : Fragment() {
             it.text.clear()
         }
         binding.gotTemp.makeClearableEditText(null, null)
+
+        viewModel.warningMessage.observe(viewLifecycleOwner, Observer { warningMessage ->
+            warningMessage?.let {
+                //Reset status value at first to prevent multitriggering
+                //and to be available to trigger action again
+                viewModel.warningMessage.value = null
+
+                val message = "Check your values"
+                Snackbar.make(this.requireView(), message, Snackbar.LENGTH_LONG).show()
+            }
+        })
 
         return binding.root
     }

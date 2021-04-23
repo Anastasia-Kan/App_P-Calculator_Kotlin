@@ -3,6 +3,7 @@ package se.anastasiakantor.pressurecalcapp.ruby
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import se.anastasiakantor.pressurecalcapp.helpers.CalculationMethods
 import se.anastasiakantor.pressurecalcapp.R
 import se.anastasiakantor.pressurecalcapp.helpers.Calibrations
@@ -16,6 +17,7 @@ class RubyViewModel(private val startFrom: Int) : ViewModel() {
     var gotRubyString = MutableLiveData<String>()
     var gotTempString = MutableLiveData<String>()
     var resultPressureString = MutableLiveData<String>()
+    var warningMessage = MutableLiveData<Boolean>()
 
     var pressure = 0.0
 
@@ -23,6 +25,7 @@ class RubyViewModel(private val startFrom: Int) : ViewModel() {
         calibration.value = Calibrations.values()[startFrom]
         referenceTempScale.value = R.id.ref_kelvin_segment
         measuredTempScale.value = R.id.measured_kelvin_segment
+        warningMessage.value = false
     }
 
     fun calculatePressureRubyClicked() {
@@ -77,6 +80,15 @@ class RubyViewModel(private val startFrom: Int) : ViewModel() {
 
             resultPressureString.value = pressure.toString()
         } else {
+            warningMessage.value = true
+            /*val message = "Check your values"
+            Snackbar.make(RubyFragment, message, Snackbar.LENGTH_LONG).show()*/
+            /*
+            TossViewModel.Event.ShowSnackBar -> {
+                        val message = getString(event.stringId)
+                        Snackbar.make(binding.buttonAdd, message, Snackbar.LENGTH_SHORT).show()
+                    }
+             */
             //TODO: Snackbar instead of message inside a TextView
             /*val snack = Snackbar.make(it,"This is a simple Snackbar", Snackbar.LENGTH_LONG)
             snack.show()*/

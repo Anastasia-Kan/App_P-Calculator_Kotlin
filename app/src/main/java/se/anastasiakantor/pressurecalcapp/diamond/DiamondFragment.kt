@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import se.anastasiakantor.pressurecalcapp.R
 import se.anastasiakantor.pressurecalcapp.databinding.FragmentDiamondBinding
 import se.anastasiakantor.pressurecalcapp.helpers.*
@@ -16,8 +18,8 @@ import se.anastasiakantor.pressurecalcapp.main.MainFragmentDirections
 
 class DiamondFragment : Fragment() {
 
-    private lateinit var viewModel : DiamondViewModel
-    private lateinit var binding : FragmentDiamondBinding
+    private lateinit var viewModel: DiamondViewModel
+    private lateinit var binding: FragmentDiamondBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,12 +66,23 @@ class DiamondFragment : Fragment() {
         }
         binding.gotPeak.makeClearableEditText(null, null)
 
+        viewModel.warningMessageDiamond.observe(viewLifecycleOwner, Observer { warningMessageDiamond ->
+            warningMessageDiamond?.let {
+                if(warningMessageDiamond) {
+                //Reset status value to prevent multi-triggering
+                viewModel.warningMessageDiamond.value = null
+                val message = "Check your values"
+                Snackbar.make(this.requireView(), message, Snackbar.LENGTH_LONG).show()}
+            }
+        })
+
         return binding.root
     }
 
     private fun readPreferencesFromFile(): Int {
         val sharedPref =
-            requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE) ?: return 0
+            requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
+                ?: return 0
         return sharedPref.getInt(DIAMOND_METHOD_KEY, 0)
     }
 }

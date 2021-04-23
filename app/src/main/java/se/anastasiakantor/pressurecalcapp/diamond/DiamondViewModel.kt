@@ -15,8 +15,11 @@ class DiamondViewModel(private val startFrom: Int) : ViewModel() {
 
     var pressure = 0.0
 
+    var warningMessageDiamond = MutableLiveData<Boolean>()
+
     init {
         method.value = Variations.values()[startFrom]
+        warningMessageDiamond.value = false
     }
 
     fun calculatePressureDiamondClicked() {
@@ -25,29 +28,29 @@ class DiamondViewModel(private val startFrom: Int) : ViewModel() {
                 //TODO: Save and store method.value
                 val refPeak = refPeakString.value?.toDoubleOrNull() ?: 1333.0
                 val gotPeak = gotPeakString.value?.toDoubleOrNull() ?: 1333.0
-                if(CalculationMethods.areNumbersCorrectDiamond(refPeak, gotPeak)) {
-                refPeakString.value = refPeak.toString()
-                gotPeakString.value = gotPeak.toString()
+                if (CalculationMethods.areNumbersCorrectDiamond(refPeak, gotPeak)) {
+                    refPeakString.value = refPeak.toString()
+                    gotPeakString.value = gotPeak.toString()
 
-                pressure = CalculationMethods.diamondRaman(refPeak, gotPeak)
-                resultPressureString.value = pressure.toString()}
-                else {
+                    pressure = CalculationMethods.diamondRaman(refPeak, gotPeak)
+                    resultPressureString.value = pressure.toString()
+                } else {
                     resultPressureString.value = "Check your values"
                 }
             }
             Variations.DIAMOND_ANVIL_RAMAN -> {
-                //TODO: Save and store method.value
                 val refPeak = refPeakString.value?.toDoubleOrNull() ?: 1334.0
                 val gotPeak = gotPeakString.value?.toDoubleOrNull() ?: 1334.0
-                if(CalculationMethods.areNumbersCorrectDiamond(refPeak, gotPeak)) {
-                refPeakString.value = refPeak.toString()
-                gotPeakString.value = gotPeak.toString()
+                if (CalculationMethods.areNumbersCorrectDiamond(refPeak, gotPeak)) {
+                    refPeakString.value = refPeak.toString()
+                    gotPeakString.value = gotPeak.toString()
 
-                pressure = CalculationMethods.diamondAnvilRaman(refPeak, gotPeak)
-                resultPressureString.value = pressure.toString()}
-                else {
-                        resultPressureString.value = "Check your values"
-                    }
+                    pressure = CalculationMethods.diamondAnvilRaman(refPeak, gotPeak)
+                    resultPressureString.value = pressure.toString()
+                } else {
+                    warningMessageDiamond.value = true
+                    resultPressureString.value = ""
+                }
             }
         }
     }

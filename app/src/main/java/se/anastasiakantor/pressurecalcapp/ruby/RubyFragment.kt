@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.snackbar.Snackbar.make
 import se.anastasiakantor.pressurecalcapp.R
 import se.anastasiakantor.pressurecalcapp.databinding.FragmentRubyBinding
 import se.anastasiakantor.pressurecalcapp.helpers.*
@@ -20,7 +19,7 @@ import se.anastasiakantor.pressurecalcapp.main.MainFragmentDirections
 
 class RubyFragment : Fragment() {
 
-    private lateinit var viewModel : RubyViewModel
+    private lateinit var viewModel: RubyViewModel
     private lateinit var binding: FragmentRubyBinding
 
     override fun onCreateView(
@@ -32,7 +31,10 @@ class RubyFragment : Fragment() {
         val startFromMethod = readPreferencesFromFile()
         Log.i(TAG, "start from $startFromMethod")
 
-        viewModel = ViewModelProvider(this, RubyViewModel.Factory(startFromMethod)).get(RubyViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            RubyViewModel.Factory(startFromMethod)
+        ).get(RubyViewModel::class.java)
         binding.rubyViewModel = viewModel
         binding.lifecycleOwner = this
 
@@ -60,7 +62,7 @@ class RubyFragment : Fragment() {
         }
 
         binding.refRuby.onRightDrawableClicked {
-        // TODO: show soft keyboard when old value deleted
+            // TODO: show soft keyboard when old value deleted
             it.text.clear()
         }
         binding.refRuby.makeClearableEditText(null, null)
@@ -80,14 +82,14 @@ class RubyFragment : Fragment() {
         }
         binding.gotTemp.makeClearableEditText(null, null)
 
-        viewModel.warningMessage.observe(viewLifecycleOwner, Observer { warningMessage ->
-            warningMessage?.let {
-                //Reset status value at first to prevent multitriggering
-                //and to be available to trigger action again
-                viewModel.warningMessage.value = null
-
-                val message = "Check your values"
-                Snackbar.make(this.requireView(), message, Snackbar.LENGTH_LONG).show()
+        viewModel.warningMessageRuby.observe(viewLifecycleOwner, Observer { warningMessageRuby ->
+            warningMessageRuby?.let {
+                if (warningMessageRuby) {
+                    //Reset status value to prevent multi-triggering
+                    viewModel.warningMessageRuby.value = null
+                    val message = "Check your values"
+                    Snackbar.make(this.requireView(), message, Snackbar.LENGTH_LONG).show()
+                }
             }
         })
 
@@ -96,7 +98,8 @@ class RubyFragment : Fragment() {
 
     private fun readPreferencesFromFile(): Int {
         val sharedPref =
-            requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE) ?: return 0
+            requireContext().getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
+                ?: return 0
         return sharedPref.getInt(RUBY_CALIBRATION_KEY, 0)
     }
 }

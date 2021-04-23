@@ -1,6 +1,7 @@
 package se.anastasiakantor.pressurecalcapp.diamond
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -66,15 +67,20 @@ class DiamondFragment : Fragment() {
         }
         binding.gotPeak.makeClearableEditText(null, null)
 
-        viewModel.warningMessageDiamond.observe(viewLifecycleOwner, Observer { warningMessageDiamond ->
-            warningMessageDiamond?.let {
-                if(warningMessageDiamond) {
-                //Reset status value to prevent multi-triggering
-                viewModel.warningMessageDiamond.value = null
-                val message = "Check your values"
-                Snackbar.make(this.requireView(), message, Snackbar.LENGTH_LONG).show()}
-            }
-        })
+        viewModel.warningMessageDiamond.observe(
+            viewLifecycleOwner,
+            Observer { warningMessageDiamond ->
+                warningMessageDiamond?.let {
+                    if (warningMessageDiamond) {
+                        //Reset status value to prevent multi-triggering
+                        viewModel.warningMessageDiamond.value = null
+                        val message = "Check your values"
+                        val snack = Snackbar.make(this.requireView(), message, Snackbar.LENGTH_SHORT)
+                        snack.view.setBackgroundColor(Color.parseColor("#ff0d05"))
+                        snack.show()
+                    }
+                }
+            })
 
         return binding.root
     }

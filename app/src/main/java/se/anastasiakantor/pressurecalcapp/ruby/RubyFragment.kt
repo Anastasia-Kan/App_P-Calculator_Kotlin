@@ -1,6 +1,7 @@
 package se.anastasiakantor.pressurecalcapp.ruby
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -88,7 +89,9 @@ class RubyFragment : Fragment() {
                     //Reset status value to prevent multi-triggering
                     viewModel.warningMessageRuby.value = null
                     val message = "Check your values"
-                    Snackbar.make(this.requireView(), message, Snackbar.LENGTH_LONG).show()
+                    val snack = Snackbar.make(this.requireView(), message, Snackbar.LENGTH_SHORT)
+                    snack.view.setBackgroundColor(Color.parseColor("#ff0d05"))
+                    snack.show()
                 }
             }
         })

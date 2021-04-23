@@ -35,7 +35,8 @@ class DiamondViewModel(private val startFrom: Int) : ViewModel() {
                     pressure = CalculationMethods.diamondRaman(refPeak, gotPeak)
                     resultPressureString.value = pressure.toString()
                 } else {
-                    resultPressureString.value = "Check your values"
+                    warningMessageDiamond.value = true
+                    resultPressureString.value = ""
                 }
             }
             Variations.DIAMOND_ANVIL_RAMAN -> {

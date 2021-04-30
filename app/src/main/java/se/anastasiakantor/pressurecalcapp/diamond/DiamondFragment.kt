@@ -76,7 +76,7 @@ class DiamondFragment : Fragment() {
                         viewModel.warningMessageDiamond.value = null
                         val message = "Check your values"
                         val snack = Snackbar.make(this.requireView(), message, Snackbar.LENGTH_SHORT)
-                        snack.view.setBackgroundColor(Color.parseColor("#ff0d05"))
+                        snack.view.setBackgroundColor(Color.parseColor("#F44336"))
                         snack.show()
                     }
                 }
